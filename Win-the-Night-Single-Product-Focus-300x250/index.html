@@ -95,7 +95,7 @@
 
     .frame.text--rotate {
       height: auto;
-      top: -245px;
+      top: -625px;
     }
 
 
@@ -241,8 +241,8 @@
         bannerTL
           .to(fr1Logo, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to(fr1RotateText, .2, { y: '+=255', ease: Elastic.easeIn, repeat: 7 }, '-=.25')
-          .fromTo(fr1RotateText, .15, { filter: "blur(6px)", ease: Elastic.easeInOut }, { filter: "blur(0px)", ease: Elastic.easeInOut }, '-=.2')
+          .to(fr1RotateText, .2, { y: '+=622', ease: Linear.easeIn, repeat: 7 }, '-=.25')
+          .fromTo(fr1RotateText, .15, { filter: "blur(6px)", ease: Linear.easeInOut }, { filter: "blur(0px)", ease: Linear.easeInOut }, '-=.2')
 
           .to([fr2, table, prod1, fr2LogoA, fr2H1], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
