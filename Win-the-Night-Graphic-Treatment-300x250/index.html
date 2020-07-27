@@ -209,10 +209,11 @@
         bannerTL
           .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to(fr1RotateText, .2, { y: '+=622', ease: Linear.easeIn, repeat: 7 }, '-=.25')
+          .to(fr1RotateText, .2, { y: '+=624', ease: Linear.easeIn, repeat: 7 }, '-=.25')
           .fromTo(fr1RotateText, .15, { filter: "blur(6px)", ease: Linear.easeInOut }, { filter: "blur(0px)", ease: Linear.easeInOut }, '-=.2')
 
-          .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut }, '+=1')
+          .to([fr1StaticText, fr1RotateText], 0, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut })
           .to([prod, fr2LogoA, h2], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
@@ -225,10 +226,9 @@
           .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut })
 
 
-
-        setTimeout(function () {
-          bannerTL.pause();
-        }, 15000)
+        // setTimeout(function () {
+        //   bannerTL.pause();
+        // }, 15000)
 
         function onHover() {
           ctaBtn.classList.toggle('hovered');
