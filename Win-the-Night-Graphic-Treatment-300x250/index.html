@@ -89,13 +89,15 @@
     }
 
     .frame.text--static,
-    .frame.text--rotate {
+    .frame.text--rotate-1,
+    .frame.text--rotate-2 {
       z-index: 2;
     }
 
-    .frame.text--rotate {
+    .frame.text--rotate-1,
+    .frame.text--rotate-2 {
       height: auto;
-      top: -625px;
+      top: -380px;
     }
 
 
@@ -137,7 +139,7 @@
       height: 25px;
       border-radius: 2.5px;
       top: 149px;
-      left: 193px;
+      left: 187px;
       position: absolute;
       z-index: 4;
     }
@@ -185,7 +187,8 @@
       var fr1 = document.querySelector('.frame-1');
       var h1 = document.querySelector('.h1');
       var fr1StaticText = document.querySelector('.text--static');
-      var fr1RotateText = document.querySelector('.text--rotate');
+      var fr1RotateText1 = document.querySelector('.text--rotate-1');
+      var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var prod = document.querySelector('.products');
       var fr2LogoA = document.querySelector('.logo-a');
@@ -208,21 +211,21 @@
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
           .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
-          .to([fr1StaticText, fr1RotateText], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to(fr1RotateText, .2, { y: '+=624', ease: Linear.easeIn, repeat: 7 }, '-=.25')
-          .fromTo(fr1RotateText, .15, { filter: "blur(6px)", ease: Linear.easeInOut }, { filter: "blur(0px)", ease: Linear.easeInOut }, '-=.2')
+          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([fr1RotateText1, fr1RotateText2], .2, { y: '+=364', ease: Linear.easeIn, repeat: 5 }, '-=.25')
+          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
-          .to([fr1StaticText, fr1RotateText], 0, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
-          .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut })
+
+          .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut }, '+=1')
           .to([prod, fr2LogoA, h2], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
           .to([fr2LogoB, legal, h4], .25, { autoAlpha: 1, ease: Sine.easeOut })
-          .to(prod, .25, { x: '-=65', y: '-=10', ease: Sine.easeOut }, '-=.25')
+          .to(prod, .25, { x: '-=60', y: '-=7', ease: Sine.easeOut }, '-=.25')
 
-          .to(h4, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
+          .to(h4, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut })
 
 
@@ -251,10 +254,9 @@
           './images/graphic_treatment_fr5_h1.png',
           './images/graphic_treatment_fr4_h1.png',
           './images/graphic_treatment_fr1_bg.jpg',
-          './images/graphic_treatment_fr3_bg.jpg',
-          './images/graphic_treatment_fr3_ellipse.png',
           './images/graphic_treatment_fr6_legal.png',
           './images/graphic_treatment_fr6_cta_text.png',
+          './images/graphic_treatment_fr2_your_racing_mind.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -293,7 +295,8 @@
         <img src="./images/graphic_treatment_fr1_bg.jpg" class="frame frame-1-bg" />
         <img src="./images/graphic_treatment_fr1_h1.png" class="frame h1" />
         <img src="./images/graphic_treatment_fr2_static_text.png" class="frame text--static" />
-        <img src="./images/graphic_treatment_fr2_symptoms_full.png" class="frame text--rotate" />
+        <img src="./images/graphic_treatment_fr2_symptoms_full.png" class="frame text--rotate-1" />
+        <img src="./images/graphic_treatment_fr2_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
 
 
