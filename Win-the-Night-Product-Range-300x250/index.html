@@ -89,15 +89,20 @@
     }
 
     .frame.text--static,
-    .frame.text--rotate {
+    .frame.text--rotate-1,
+    .frame.text--rotate-2 {
       z-index: 2;
     }
 
-    .frame.text--rotate {
+    .frame.text--rotate-1,
+    .frame.text--rotate-2 {
       height: auto;
-      top: -625px;
+      top: -380px;
     }
 
+    .frame.table {
+      transform: scale(1.05);
+    }
 
     .frame.frame-2,
     .frame.table,
@@ -117,7 +122,7 @@
       top: 16%;
     }
 
-    .frame.product-all {
+    .frame.product-no-shadow {
       z-index: 6;
       background-image: url('./images/prod_range_all_prod_no_shadow.png');
       background-size: contain;
@@ -135,7 +140,6 @@
       background-size: contain;
     }
 
-    .frame.ellipse,
     .frame.logo-3,
     .frame.legal,
     .frame.logo-a {
@@ -153,7 +157,7 @@
       height: 25px;
       border-radius: 2.5px;
       top: 149px;
-      left: 193px;
+      left: 187px;
       position: absolute;
       z-index: 4;
     }
@@ -201,11 +205,12 @@
       var fr1 = document.querySelector('.frame-1');
       var fr1Logo = document.querySelector('.logo');
       var fr1StaticText = document.querySelector('.text--static');
-      var fr1RotateText = document.querySelector('.text--rotate');
+      var fr1RotateText1 = document.querySelector('.text--rotate-1');
+      var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var fr2Bg = document.getElementById('bg');
       var table = document.querySelector('.table');
-      var prod = document.querySelector('.product-all');
+      var prod = document.querySelector('.product-no-shadow');
       var shadow = document.querySelector('.product-shadow');
       var fr2LogoA = document.querySelector('.logo-a');
       var fr2H1 = document.querySelector('.h1');
@@ -213,7 +218,6 @@
       var fr2LogoB = document.querySelector('.logo-b');
       var fr2H3 = document.querySelector('.h3');
       var fr3 = document.querySelector('.frame-3');
-      var fr3Ellipse = document.querySelector('.ellipse');
       var fr3Logo3 = document.querySelector('.logo-3');
       var legal = document.querySelector('.legal');
       var ctaText = document.querySelector('.cta-text');
@@ -230,24 +234,24 @@
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
           .to(fr1Logo, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
-          .to([fr1StaticText, fr1RotateText], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to(fr1RotateText, .2, { y: '+=622', ease: Linear.easeIn, repeat: 7 }, '-=.25')
-          .fromTo(fr1RotateText, .15, { filter: "blur(6px)", ease: Linear.easeInOut }, { filter: "blur(0px)", ease: Linear.easeInOut }, '-=.2')
+          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([fr1RotateText1, fr1RotateText2], .15, { y: '+=364', ease: Linear.easeIn, repeat: 4 }, '-=.25')
+          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
 
-          .to([fr2, table, prod, shadow, fr2LogoA, fr2H1], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
-          .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to([fr2, table, shadow, fr2LogoA, fr2H1], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
+          .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-          .to(fr2H2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(fr2H2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
 
           .to(fr2Bg, 0, { x: '-=93', y: '-=25', ease: Sine.easeOut })
+          .to([prod, shadow], .15, { scale: .9, x: '-=13', y: '+=10', ease: Sine.easeOut }, '-=.15')
           .to(fr2LogoB, .25, { autoAlpha: 1, ease: Sine.easeOut })
-          .to(fr2H3, .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=.25')
+          .to(fr2H3, .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
 
-          .to([fr3, fr3Ellipse], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
-          .to(shadow, .25, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
-          .to(prod, .25, { scale: 1.1, x: '+=20', y: '-=13', ease: Sine.easeOut }, '-=.25')
-          .to([fr3Logo3, legal, ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=.25')
-
+          .to(fr3, .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=2')
+          .to(shadow, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
+          .to(prod, .15, { scale: .95, x: '+=5', y: '-=7', ease: Sine.easeInOut }, '-=.25')
+          .to([fr3Logo3, legal, ctaText, ctaBtn, prod], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.15')
 
 
         setTimeout(function () {
@@ -279,7 +283,6 @@
           './images/prod_range_fr5_win_the_night.png',
           './images/prod_range_fr6_bg.png',
           './images/prod_range_fr6_cta_text.png',
-          './images/prod_range_fr6_ellipse.png',
           './images/prod_range_fr6_legal.png',
           './images/prod_range_fr6_logo.png'
         ];
@@ -319,7 +322,8 @@
       <div class="frame frame-1">
         <img src="./images/prod_range_fr1_logo.png" class="frame logo" />
         <img src="./images/prod_range_fr2_static_text.png" class="frame text--static" />
-        <img src="./images/prod_range_fr2_symptoms_full.png" class="frame text--rotate" />
+        <img src="./images/prod_range_fr2_symptoms_full.png" class="frame text--rotate-1" />
+        <img src="./images/prod_range_fr2_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
 
 
@@ -333,11 +337,10 @@
         <img src="./images/prod_range_fr5_h1.png" class="frame h3">
       </div>
 
-      <div class="frame product-all"></div>
+      <div class="frame product-no-shadow"></div>
       <div class="frame product-shadow"></div>
 
       <div class="frame frame-3">
-        <img src="./images/prod_range_fr6_ellipse.png" class="frame ellipse">
         <img src="./images/prod_range_fr6_logo.png" class="frame logo-3">
         <img src="./images/prod_range_fr6_legal.png" class="frame legal">
         <img src="./images/prod_range_fr6_cta_text.png" class="frame cta-text">
