@@ -9,7 +9,7 @@
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
-  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <style type="text/css">
     body {
       padding: 0;
@@ -61,7 +61,6 @@
       cursor: pointer;
     }
 
-
     .frame {
       position: absolute;
       top: 0;
@@ -97,7 +96,7 @@
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
       height: auto;
-      top: -380px;
+      top: -364px;
     }
 
 
@@ -139,20 +138,13 @@
       background-size: contain;
     }
 
-    .frame.all-prod-no-shad {
-      z-index: 5;
-      background-image: url('./images/single_prod_focus_all_prod_no_shadow.png');
-      background-size: contain;
-    }
-
     .frame.frame-3 {
       z-index: 4;
       background-image: url('./images/single_prod_focus_fr6_bg.png');
       background-size: contain;
     }
 
-    .frame.logo-3,
-    .frame.legal,
+    .frame.end,
     .frame.logo-a {
       z-index: 4;
     }
@@ -200,20 +192,18 @@
   </style>
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("DOMContentLoaded", function (e) {
+
       // variables
       var loadedImage = 0;
       var images = [];
       var exit = document.querySelector('.exit');
       var bannerContent = document.querySelector('.banner-content');
-
       var bannerConfig = {
         width: 300,
         height: 250
       }
 
-
       // list all animating elements
-      var fr1 = document.querySelector('.frame-1');
       var fr1Logo = document.querySelector('.logo');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
@@ -227,15 +217,12 @@
       var fr2H2 = document.querySelector('.h2');
       var prod2 = document.querySelector('.product-2');
       var prod3 = document.querySelector('.product-3');
-      var allProdNoShadow = document.querySelector('.all-prod-no-shad');
       var fr2LogoB = document.querySelector('.logo-b');
       var fr2H3 = document.querySelector('.h3');
       var fr3 = document.querySelector('.frame-3');
-      var fr3Logo3 = document.querySelector('.logo-3');
-      var legal = document.querySelector('.legal');
+      var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
-
 
 
       // timelines
@@ -243,13 +230,12 @@
 
       function bannerAnimation() {
 
-
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
           .to(fr1Logo, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], .25, { y: '+=364', ease: Linear.easeIn, repeat: 3 }, '-=.25')
-          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to([fr1RotateText1, fr1RotateText2], .25, { y: '+=367', ease: Linear.easeIn, repeat: 3 }, '-=.25')
+          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
           .to([fr2, table, prod1, fr2LogoA, fr2H1], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
@@ -261,14 +247,11 @@
           .to(prod1, .25, { scale: .8, x: '+=20', y: '+=10', ease: Sine.easeOut })
           .to(prod2, .5, { autoAlpha: 1, x: '-=22', ease: Sine.easeInOut }, '-=.2')
           .to(prod3, .5, { autoAlpha: 1, x: '-=22', ease: Sine.easeInOut }, '-=.3')
-          .to(allProdNoShadow, 0, { x: '-=22', ease: Sine.easeInOut })
 
           .to(fr3, .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=1.75')
           .to([prod2, prod3], 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
-          .to(allProdNoShadow, .25, { autoAlpha: 1, scale: .955, x: '+=11', y: '+=8', ease: Sine.easeOut }, '-=.25')
           .to(prod1, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
-          .to([fr3Logo3, legal, ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-
+          .to([end, ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
 
         // setTimeout(function () {
         //   bannerTL.pause();
@@ -284,6 +267,7 @@
 
       function preload() {
         images = [
+          './images/end_frame.png',
           './images/single_prod_focus_calm_relax.png',
           './images/single_prod_focus_extended_release_melatonin.png',
           './images/single_prod_focus_fr1.jpg',
@@ -291,7 +275,6 @@
           './images/single_prod_focus_fr2_static_text.png',
           './images/single_prod_focus_fr2_symptoms_full.png',
           './images/single_prod_focus_fr2_your_racing_mind.png',
-          './images/single_prod_focus_all_prod_no_shadow.png',
           './images/single_prod_focus_fr3_logo.png',
           './images/single_prod_focus_fr3_h1.png',
           './images/single_prod_focus_fr4_h1.png',
@@ -301,8 +284,6 @@
           './images/single_prod_focus_fr5_win_the_night.png',
           './images/single_prod_focus_fr6_bg.png',
           './images/single_prod_focus_fr6_cta_text.png',
-          './images/single_prod_focus_fr6_legal.png',
-          './images/single_prod_focus_fr6_logo.png',
           './images/single_prod_focus_melatonin_gummies.png'
         ];
 
@@ -321,22 +302,20 @@
       }
 
       function init() {
-
         bannerContent.classList.add('banner-content--active');
         bannerAnimation();
-
       }
 
       preload();
+
     });
   </script>
 
 <body>
   <div id="container" class="container b-300x250" style="background-color: #fff;">
     <div class="banner-border"></div>
-    <a class="exit" href="javascript:window.open(window.clickTag)"></a>
+    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <div class="banner-content">
-
 
       <div class="frame frame-1">
         <img src="./images/single_prod_focus_fr1_logo.png" class="frame logo" />
@@ -359,15 +338,11 @@
       <div class="frame product-1"></div>
       <div class="frame product-2"></div>
       <div class="frame product-3"></div>
-      <div class="frame all-prod-no-shad"></div>
 
       <div class="frame frame-3">
-        <img src="./images/single_prod_focus_fr6_logo.png" class="frame logo-3">
-        <img src="./images/single_prod_focus_fr6_legal.png" class="frame legal">
+        <img src="./images/end_frame.png" class="frame end">
         <img src="./images/single_prod_focus_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
-
-
       </div>
 
     </div>
