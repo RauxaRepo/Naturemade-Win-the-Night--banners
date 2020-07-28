@@ -82,6 +82,7 @@
       z-index: 1;
     }
 
+    .h1,
     .frame.logo {
       z-index: 2;
       opacity: 1;
@@ -96,7 +97,7 @@
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
       height: auto;
-      top: -380px;
+      top: -364px;
     }
 
 
@@ -106,9 +107,7 @@
       top: -250px;
     }
 
-    .frame.h1,
     .frame.h2,
-    .frame.logo-b,
     .frame.h3,
     .frame.h4,
     .frame.products {
@@ -120,9 +119,7 @@
       z-index: 3;
     }
 
-
-    .frame.logo-3,
-    .frame.legal,
+    .frame.end,
     .frame.logo-a {
       z-index: 4;
     }
@@ -175,6 +172,7 @@
       var images = [];
       var exit = document.querySelector('.exit');
       var bannerContent = document.querySelector('.banner-content');
+
       var bannerConfig = {
         width: 300,
         height: 250
@@ -182,6 +180,7 @@
 
 
       // list all animating elements
+      var fr1 = document.querySelector('.frame-1');
       var h1 = document.querySelector('.h1');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
@@ -190,10 +189,9 @@
       var prod = document.querySelector('.products');
       var fr2LogoA = document.querySelector('.logo-a');
       var h2 = document.querySelector('.h2');
-      var fr2LogoB = document.querySelector('.logo-b');
       var h3 = document.querySelector('.h3');
       var h4 = document.querySelector('.h4');
-      var legal = document.querySelector('.legal');
+      var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
 
@@ -209,8 +207,8 @@
         bannerTL
           .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], .2, { y: '+=364', ease: Linear.easeIn, repeat: 5 }, '-=.25')
-          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to([fr1RotateText1, fr1RotateText2], .25, { y: '+=367', ease: Linear.easeIn, repeat: 3 }, '-=.25')
+          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
 
           .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut }, '+=1')
@@ -218,12 +216,12 @@
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(prod, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
 
-          .to([fr2LogoB, legal, h4], .25, { autoAlpha: 1, ease: Sine.easeOut })
-          .to(prod, .25, { x: '-=60', y: '-=7', ease: Sine.easeOut }, '-=.25')
+          .to([h4, end], .5, { autoAlpha: 1, ease: Sine.easeInOut })
 
-          .to(h4, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut })
+          .to(h4, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.75')
+          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -240,18 +238,17 @@
 
       function preload() {
         images = [
+          './images/end_frame.png',
           './images/graphic_treatment_fr3_products.png',
           './images/graphic_treatment_fr2_symptoms_full.png',
           './images/graphic_treatment_fr1_h1.png',
           './images/graphic_treatment_fr3_bg_full.png',
-          './images/graphic_treatment_fr5_win_the_night.png',
           './images/graphic_treatment_fr3_logo.png',
           './images/graphic_treatment_fr2_static_text.png',
           './images/graphic_treatment_fr3_h1.png',
           './images/graphic_treatment_fr5_h1.png',
           './images/graphic_treatment_fr4_h1.png',
           './images/graphic_treatment_fr1_bg.jpg',
-          './images/graphic_treatment_fr6_legal.png',
           './images/graphic_treatment_fr6_cta_text.png',
           './images/graphic_treatment_fr2_your_racing_mind.png'
         ];
@@ -287,6 +284,7 @@
     <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <div class="banner-content">
 
+
       <div class="frame frame-1">
         <img src="./images/graphic_treatment_fr1_bg.jpg" class="frame frame-1-bg" />
         <img src="./images/graphic_treatment_fr1_h1.png" class="frame h1" />
@@ -295,14 +293,14 @@
         <img src="./images/graphic_treatment_fr2_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
 
+
       <div class="frame frame-2">
         <img src="./images/graphic_treatment_fr3_bg_full.png" class="frame frame-2-bg" />
         <img src="./images/graphic_treatment_fr3_logo.png" class="frame logo-a">
         <img src="./images/graphic_treatment_fr3_products.png" class="frame products">
         <img src="./images/graphic_treatment_fr3_h1.png" class="frame h2">
         <img src="./images/graphic_treatment_fr4_h1.png" class="frame h3">
-        <img src="./images/graphic_treatment_fr5_win_the_night.png" class="frame logo-b">
-        <img src="./images/graphic_treatment_fr6_legal.png" class="frame legal">
+        <img src="./images/end_frame.png" class="frame end">
         <img src="./images/graphic_treatment_fr5_h1.png" class="frame h4">
         <img src="./images/graphic_treatment_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
