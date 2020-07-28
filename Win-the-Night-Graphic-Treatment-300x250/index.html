@@ -9,7 +9,7 @@
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
-  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <style type="text/css">
     body {
       padding: 0;
@@ -82,7 +82,6 @@
       z-index: 1;
     }
 
-    .h1,
     .frame.logo {
       z-index: 2;
       opacity: 1;
@@ -176,7 +175,6 @@
       var images = [];
       var exit = document.querySelector('.exit');
       var bannerContent = document.querySelector('.banner-content');
-
       var bannerConfig = {
         width: 300,
         height: 250
@@ -184,7 +182,6 @@
 
 
       // list all animating elements
-      var fr1 = document.querySelector('.frame-1');
       var h1 = document.querySelector('.h1');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
@@ -287,9 +284,8 @@
 <body>
   <div id="container" class="container b-300x250" style="background-color: #fff;">
     <div class="banner-border"></div>
-    <a class="exit" href="javascript:window.open(window.clickTag)"></a>
+    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <div class="banner-content">
-
 
       <div class="frame frame-1">
         <img src="./images/graphic_treatment_fr1_bg.jpg" class="frame frame-1-bg" />
@@ -298,7 +294,6 @@
         <img src="./images/graphic_treatment_fr2_symptoms_full.png" class="frame text--rotate-1" />
         <img src="./images/graphic_treatment_fr2_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
-
 
       <div class="frame frame-2">
         <img src="./images/graphic_treatment_fr3_bg_full.png" class="frame frame-2-bg" />
@@ -309,8 +304,6 @@
         <img src="./images/graphic_treatment_fr5_win_the_night.png" class="frame logo-b">
         <img src="./images/graphic_treatment_fr6_legal.png" class="frame legal">
         <img src="./images/graphic_treatment_fr5_h1.png" class="frame h4">
-
-
         <img src="./images/graphic_treatment_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
       </div>

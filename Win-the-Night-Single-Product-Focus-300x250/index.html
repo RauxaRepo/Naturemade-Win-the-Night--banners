@@ -9,7 +9,7 @@
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
-  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <style type="text/css">
     body {
       padding: 0;
@@ -60,7 +60,6 @@
       z-index: 100;
       cursor: pointer;
     }
-
 
     .frame {
       position: absolute;
@@ -200,20 +199,18 @@
   </style>
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("DOMContentLoaded", function (e) {
+
       // variables
       var loadedImage = 0;
       var images = [];
       var exit = document.querySelector('.exit');
       var bannerContent = document.querySelector('.banner-content');
-
       var bannerConfig = {
         width: 300,
         height: 250
       }
 
-
       // list all animating elements
-      var fr1 = document.querySelector('.frame-1');
       var fr1Logo = document.querySelector('.logo');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
@@ -237,12 +234,10 @@
       var ctaBtn = document.querySelector('.cta-btn');
 
 
-
       // timelines
       var bannerTL;
 
       function bannerAnimation() {
-
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
@@ -268,7 +263,6 @@
           .to(allProdNoShadow, .25, { autoAlpha: 1, scale: .955, x: '+=11', y: '+=8', ease: Sine.easeOut }, '-=.25')
           .to(prod1, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
           .to([fr3Logo3, legal, ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-
 
         // setTimeout(function () {
         //   bannerTL.pause();
@@ -321,22 +315,20 @@
       }
 
       function init() {
-
         bannerContent.classList.add('banner-content--active');
         bannerAnimation();
-
       }
 
       preload();
+
     });
   </script>
 
 <body>
   <div id="container" class="container b-300x250" style="background-color: #fff;">
     <div class="banner-border"></div>
-    <a class="exit" href="javascript:window.open(window.clickTag)"></a>
+    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <div class="banner-content">
-
 
       <div class="frame frame-1">
         <img src="./images/single_prod_focus_fr1_logo.png" class="frame logo" />
@@ -366,8 +358,6 @@
         <img src="./images/single_prod_focus_fr6_legal.png" class="frame legal">
         <img src="./images/single_prod_focus_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
-
-
       </div>
 
     </div>

@@ -9,7 +9,7 @@
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
-  <script src="https://s0.2mdn.net/ads/studio/cached_libs/tweenmax_2.0.1_min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
   <style type="text/css">
     body {
       padding: 0;
@@ -194,7 +194,6 @@
       var images = [];
       var exit = document.querySelector('.exit');
       var bannerContent = document.querySelector('.banner-content');
-
       var bannerConfig = {
         width: 300,
         height: 250
@@ -202,7 +201,6 @@
 
 
       // list all animating elements
-      var fr1 = document.querySelector('.frame-1');
       var fr1Logo = document.querySelector('.logo');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
@@ -315,9 +313,8 @@
 <body>
   <div id="container" class="container b-300x250" style="background-color: #fff;">
     <div class="banner-border"></div>
-    <a class="exit" href="javascript:window.open(window.clickTag)"></a>
+    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <div class="banner-content">
-
 
       <div class="frame frame-1">
         <img src="./images/prod_range_fr1_logo.png" class="frame logo" />
@@ -325,7 +322,6 @@
         <img src="./images/prod_range_fr2_symptoms_full.png" class="frame text--rotate-1" />
         <img src="./images/prod_range_fr2_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
-
 
       <div class="frame frame-2">
         <img id="bg" src="./images/prod_range_fr3_fr4.jpg" />
