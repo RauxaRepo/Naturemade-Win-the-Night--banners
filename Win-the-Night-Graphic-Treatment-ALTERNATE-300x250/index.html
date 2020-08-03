@@ -110,7 +110,6 @@
     .frame.h2,
     .frame.h3,
     .frame.h4,
-    .frame.h5,
     .frame.products {
       z-index: 3;
     }
@@ -125,6 +124,7 @@
       z-index: 4;
     }
 
+    .frame.legal,
     .frame.cta-text {
       z-index: 5;
     }
@@ -135,14 +135,18 @@
       width: 89px;
       height: 25px;
       border-radius: 2.5px;
-      top: 149px;
-      left: 187px;
+      top: 181px;
+      left: 195px;
       position: absolute;
       z-index: 4;
     }
 
     .cta-btn.hovered {
       transform: scale(1.05);
+    }
+
+    .legal.hovered {
+      transform: matrix(1.05, 0, 0, 1.05, -5, -5);
     }
 
     .banner-border {
@@ -187,12 +191,12 @@
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
+      var legal = document.querySelector('.legal');
       var prod = document.querySelector('.products');
       var fr2LogoA = document.querySelector('.logo-a');
       var h2 = document.querySelector('.h2');
       var h3 = document.querySelector('.h3');
       var h4 = document.querySelector('.h4');
-      var h5 = document.querySelector('.h5');
       var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
@@ -209,21 +213,19 @@
         bannerTL
           .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], .25, { y: '+=367', ease: Linear.easeIn, repeat: 3 }, '-=.25')
+          .to([fr1RotateText1, fr1RotateText2], .75, { y: '+=368', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-
           .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut }, '+=1')
-          .to([prod, fr2LogoA, h2], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([prod, fr2LogoA, h2, legal], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h4, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
-          .to(prod, 0, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
-          .to([h5, end], .15, { autoAlpha: 1, ease: Sine.easeInOut }, '-=0')
+          .to(prod, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(end, .25, { autoAlpha: 1, ease: Sine.easeInOut }, '-=.25')
 
-          .to(h5, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
 
 
@@ -233,6 +235,7 @@
 
         function onHover() {
           ctaBtn.classList.toggle('hovered');
+          legal.classList.toggle('hovered');
         }
 
         exit.addEventListener('mouseenter', e => { onHover() });
@@ -250,7 +253,6 @@
           './images/graphic_treatment_fr2_static_text.png',
           './images/graphic_treatment_fr3_h1.png',
           './images/graphic_treatment_fr5_win_the_night.png',
-          './images/graphic_treatment_fr5_pharma.png',
           './images/graphic_treatment_fr4_h1.png',
           './images/graphic_treatment_fr1_bg.jpg',
           './images/graphic_treatment_fr6_cta_text.png',
@@ -299,13 +301,13 @@
 
 
       <div class="frame frame-2">
+        <img src="./images/graphic_treatment_fr3_legal.png" class="frame legal" />
         <img src="./images/graphic_treatment_fr3_bg_full.png" class="frame frame-2-bg" />
         <img src="./images/graphic_treatment_fr3_logo.png" class="frame logo-a">
         <img src="./images/graphic_treatment_fr3_products.png" class="frame products">
         <img src="./images/graphic_treatment_fr3_h1.png" class="frame h2">
         <img src="./images/graphic_treatment_fr4_h1.png" class="frame h3">
         <img src="./images/graphic_treatment_fr5_win_the_night.png" class="frame h4">
-        <img src="./images/graphic_treatment_fr5_pharma.png" class="frame h5">
         <img src="./images/end_frame.png" class="frame end">
         <img src="./images/graphic_treatment_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
