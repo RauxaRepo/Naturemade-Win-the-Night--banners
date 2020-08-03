@@ -134,12 +134,7 @@
       background-size: contain;
     }
 
-    .frame.frame-3 {
-      z-index: 4;
-      background-image: url('./images/prod_range_fr6_bg.png');
-      background-size: contain;
-    }
-
+    .frame.frame-3,
     .frame.logo-3,
     .frame.end,
     .frame.logo-a {
@@ -150,20 +145,30 @@
       z-index: 5;
     }
 
+    .frame.legal {
+      z-index: 6;
+      background-image: url('./images/prod_range_fr3_legal.png');
+      background-size: contain;
+    }
+
     .cta-btn {
       background-color: #a60f2d;
       opacity: 0;
       width: 89px;
       height: 25px;
       border-radius: 2.5px;
-      top: 149px;
-      left: 187px;
+      top: 181px;
+      left: 195px;
       position: absolute;
       z-index: 4;
     }
 
     .cta-btn.hovered {
       transform: scale(1.05);
+    }
+
+    .legal.hovered {
+      transform: matrix(1.05, 0, 0, 1.05, -5, -5);
     }
 
     .banner-border {
@@ -206,15 +211,14 @@
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
+      var legal = document.querySelector('.legal');
       var fr2Bg = document.getElementById('bg');
       var table = document.querySelector('.table');
-      var prod = document.querySelector('.product-no-shadow');
       var shadow = document.querySelector('.product-shadow');
       var fr2LogoA = document.querySelector('.logo-a');
       var fr2H1 = document.querySelector('.h1');
       var fr2H2 = document.querySelector('.h2');
-      var fr2LogoB = document.querySelector('.logo-b');
-      var fr2H3 = document.querySelector('.h3');
+
       var fr3 = document.querySelector('.frame-3');
       var fr3Logo3 = document.querySelector('.logo-3');
       var end = document.querySelector('.end');
@@ -233,21 +237,16 @@
         bannerTL
           .to(fr1Logo, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], .25, { y: '+=367', ease: Linear.easeIn, repeat: 3 }, '-=.25')
+          .to([fr1RotateText1, fr1RotateText2], .5, { y: '+=367', ease: Linear.easeIn, repeat: 1 }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr2, table, shadow, fr2LogoA, fr2H1], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
+          .to([fr2, table, shadow, fr2LogoA, fr2H1, legal], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-          .to(fr2H2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
 
-          .to(fr2Bg, 0, { x: '-=93', y: '-=25', ease: Sine.easeOut })
-          .to([prod, shadow], .15, { scale: .9, x: '-=13', y: '+=10', ease: Sine.easeOut }, '-=.15')
-          .to(fr2LogoB, .25, { autoAlpha: 1, ease: Sine.easeOut })
-          .to(fr2H3, .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
+          .to(fr3, .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1.75')
+          .to(shadow, .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
 
-          .to(fr3, .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=1.75')
-          .to(shadow, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
           .to([end, ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
 
 
@@ -257,6 +256,7 @@
 
         function onHover() {
           ctaBtn.classList.toggle('hovered');
+          legal.classList.toggle('hovered');
         }
 
         exit.addEventListener('mouseenter', e => { onHover() });
@@ -275,11 +275,7 @@
           './images/prod_range_fr4_h1.png',
           './images/prod_range_fr3_fr4.jpg',
           './images/prod_range_fr3_table.png',
-          './images/prod_range_fr5_h1.png',
-          './images/prod_range_fr5_win_the_night.png',
-          './images/prod_range_fr6_bg.png',
           './images/prod_range_fr6_cta_text.png',
-          './images/prod_range_fr6_logo.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -323,14 +319,13 @@
       <div class="frame frame-2">
         <img id="bg" src="./images/prod_range_fr3_fr4.jpg" />
         <img src="./images/prod_range_fr3_logo.png" class="frame logo-a">
-        <img src="./images/prod_range_fr5_win_the_night.png" class="frame logo-b">
         <img src="./images/prod_range_fr3_h1.png" class="frame h1">
         <img src="./images/prod_range_fr4_h1.png" class="frame h2">
         <img src="./images/prod_range_fr3_table.png" class="frame table">
-        <img src="./images/prod_range_fr5_h1.png" class="frame h3">
       </div>
 
       <div class="frame product-shadow"></div>
+      <div class="frame legal"></div>
 
       <div class="frame frame-3">
         <img src="./images/end_frame.png" class="frame end">
