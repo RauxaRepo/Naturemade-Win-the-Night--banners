@@ -191,6 +191,15 @@
       left: 0;
       cursor: pointer;
     }
+
+    .legal-exit {
+      width: 50px;
+      height: 20px;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      z-index: 5;
+    }
   </style>
   <script type="text/javascript" charset="utf-8">
     document.addEventListener("DOMContentLoaded", function (e) {
@@ -199,6 +208,7 @@
       var loadedImage = 0;
       var images = [];
       var exit = document.querySelector('.exit');
+      var legalExit = document.querySelector('.legal-exit');
       var bannerContent = document.querySelector('.banner-content');
       var bannerConfig = {
         width: 300,
@@ -237,7 +247,7 @@
           .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=368', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr2, table, prod1, fr2LogoA, fr2H1, legal], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
+          .to([fr2, table, prod1, fr2LogoA, fr2H1, legal, legalExit], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
@@ -253,13 +263,19 @@
         //   bannerTL.pause();
         // }, 15000)
 
-        function onHover() {
+        function ctaOnHover() {
           ctaBtn.classList.toggle('hovered');
+        }
+
+        function legalOnHover() {
           legal.classList.toggle('hovered');
         }
 
-        exit.addEventListener('mouseenter', e => { onHover() });
-        exit.addEventListener('mouseout', e => { onHover() })
+        exit.addEventListener('mouseenter', e => { ctaOnHover() });
+        exit.addEventListener('mouseout', e => { ctaOnHover() })
+
+        legalExit.addEventListener('mouseenter', e => { legalOnHover() });
+        legalExit.addEventListener('mouseout', e => { legalOnHover() })
       }
 
       function preload() {
@@ -310,6 +326,7 @@
   <div id="container" class="container b-300x250" style="background-color: #fff;">
     <div class="banner-border"></div>
     <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
+    <a class="legal-exit" href="javascript:void(window.open(window.clickTag))"></a>
     <div class="banner-content">
 
       <div class="frame frame-1">
