@@ -113,19 +113,13 @@
       z-index: 3;
     }
 
-    .frame-2 #bg {
+    .frame-2-bg {
       transform: scale(1.4);
       width: 300px;
       height: auto;
       position: absolute;
       left: 18%;
       top: 16%;
-    }
-
-    .frame.product-no-shadow {
-      z-index: 6;
-      background-image: url('./images/prod_range_all_prod_no_shadow.png');
-      background-size: contain;
     }
 
     .frame.product-shadow {
@@ -145,10 +139,9 @@
       z-index: 5;
     }
 
-    .frame.legal {
+    .frame.frame-4 {
       z-index: 6;
-      background-image: url('./images/prod_range_fr3_legal.png');
-      background-size: contain;
+      opacity: 1;
     }
 
     .cta-btn {
@@ -225,7 +218,6 @@
       var ctaBtn = document.querySelector('.cta-btn');
 
 
-
       // timelines
       var bannerTL;
 
@@ -264,13 +256,16 @@
 
       function preload() {
         images = [
+          './images/end_frame.png',
           './images/prod_range_all_prod_shadow.png',
           './images/prod_range_fr1.jpg',
           './images/prod_range_fr1_logo.png',
           './images/prod_range_fr2_static_text.png',
           './images/prod_range_fr2_symptoms_full.png',
+          './images/prod_range_fr2_your_racing_mind.png',
           './images/prod_range_fr3_logo.png',
           './images/prod_range_fr3_h1.png',
+          './images/prod_range_fr3_legal.png',
           './images/prod_range_fr4_h1.png',
           './images/prod_range_fr3_fr4.jpg',
           './images/prod_range_fr3_table.png',
@@ -316,20 +311,23 @@
       </div>
 
       <div class="frame frame-2">
-        <img id="bg" src="./images/prod_range_fr3_fr4.jpg" />
-        <img src="./images/prod_range_fr3_logo.png" class="frame logo-a">
+        <img src="./images/prod_range_fr3_fr4.jpg" class="frame-2-bg" />
         <img src="./images/prod_range_fr3_h1.png" class="frame h1">
         <img src="./images/prod_range_fr4_h1.png" class="frame h2">
         <img src="./images/prod_range_fr3_table.png" class="frame table">
       </div>
 
       <div class="frame product-shadow"></div>
-      <div class="frame legal"></div>
 
       <div class="frame frame-3">
         <img src="./images/end_frame.png" class="frame end">
         <img src="./images/prod_range_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
+      </div>
+
+      <div class="frame frame-4">
+        <img src="./images/prod_range_fr3_logov3.png" class="frame logo-a">
+        <img src='./images/prod_range_fr3_legal.png' class="frame legal">
       </div>
 
     </div>
