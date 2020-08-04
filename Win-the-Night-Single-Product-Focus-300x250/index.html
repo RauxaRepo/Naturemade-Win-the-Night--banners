@@ -138,15 +138,13 @@
     }
 
     .frame.frame-3,
-    .frame.end,
-    .frame.logo-a {
+    .frame.end {
       z-index: 4;
     }
 
-    .frame.legal {
+    .frame.frame-4 {
       z-index: 6;
-      background-image: url('./images/single_prod_focus_fr3_legal.png');
-      background-size: contain;
+      opacity: 1;
     }
 
     .frame.cta-text {
@@ -280,7 +278,8 @@
           './images/single_prod_focus_fr3_fr4.jpg',
           './images/single_prod_focus_fr3_table.png',
           './images/single_prod_focus_fr6_cta_text.png',
-          './images/single_prod_focus_melatonin_gummies.png'
+          './images/single_prod_focus_melatonin_gummies.png',
+          './images/single_prod_focus_fr3_legal.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -323,7 +322,6 @@
 
       <div class="frame frame-2">
         <img src="./images/single_prod_focus_fr3_fr4.jpg" class="frame-2-bg" />
-        <img src="./images/single_prod_focus_fr3_logo.png" class="frame logo-a">
         <img src="./images/single_prod_focus_fr3_h1.png" class="frame h1">
         <img src="./images/single_prod_focus_fr4_h1.png" class="frame h2">
         <img src="./images/single_prod_focus_fr3_table.png" class="frame table">
@@ -332,12 +330,16 @@
       <div class="frame product-1"></div>
       <div class="frame product-2"></div>
       <div class="frame product-3"></div>
-      <div class="frame legal"></div>
 
       <div class="frame frame-3">
         <img src="./images/single_prod_focus_fr6_cta_text.png" class="frame cta-text">
         <img src="./images/end_frame.png" class="frame end">
         <div class="cta-btn"></div>
+      </div>
+
+      <div class="frame frame-4">
+        <img src="./images/single_prod_focus_fr3_logo.png" class="frame logo-a">
+        <img src='./images/single_prod_focus_fr3_legal.png' class="frame legal">
       </div>
 
     </div>
