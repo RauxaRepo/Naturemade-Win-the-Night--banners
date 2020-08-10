@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title></title>
-  <meta name="ad.size" content="width=300,height=250">
+  <meta name="ad.size" content="width=160,height=600">
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
@@ -40,16 +40,16 @@
       display: block;
     }
 
-    .b-300x250 {
-      width: 300px;
-      height: 250px;
+    .b-160x600 {
+      width: 160px;
+      height: 600px;
       padding: 0;
     }
 
     /*CTA BTN*/
     .btn-container {
-      width: 300px;
-      height: 250px;
+      width: 160px;
+      height: 600px;
       background-color: transparent;
       position: absolute;
       top: 0;
@@ -72,8 +72,8 @@
     }
 
     img {
-      width: 300px;
-      height: 250px;
+      width: 160px;
+      height: 600px;
     }
 
     .frame.frame-1,
@@ -96,21 +96,22 @@
 
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
-      height: auto;
-      top: -364px;
+      height: 600px;
+      width: auto;
+      left: -100px;
     }
 
 
     .frame.frame-2 {
       opacity: 1;
       z-index: 3;
-      top: -250px;
+      top: -600px;
     }
 
     .frame.h2,
     .frame.h3,
     .frame.h4,
-    .frame.products {
+    .frame.h5 {
       z-index: 3;
     }
 
@@ -132,11 +133,11 @@
     .cta-btn {
       background-color: #a60f2d;
       opacity: 0;
-      width: 89px;
-      height: 25px;
+      width: 107px;
+      height: 29px;
       border-radius: 2.5px;
-      top: 181px;
-      left: 195px;
+      top: 467px;
+      left: 27px;
       position: absolute;
       z-index: 4;
     }
@@ -146,13 +147,13 @@
     }
 
     .legal.hovered {
-      transform: matrix(1.05, 0, 0, 1.05, -5, -5);
+      transform: matrix(1.015, 0, 0, 1.015, 0, 0);
     }
 
     .banner-border {
       position: absolute;
-      width: 298px;
-      height: 248px;
+      width: 158px;
+      height: 598px;
       border: 1px solid #000000;
       pointer-events: none;
       z-index: 6;
@@ -189,8 +190,8 @@
       var bannerContent = document.querySelector('.banner-content');
 
       var bannerConfig = {
-        width: 300,
-        height: 250
+        width: 160,
+        height: 600
       }
 
 
@@ -202,12 +203,11 @@
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var legal = document.querySelector('.legal');
-      var prod = document.querySelector('.products');
       var fr2LogoA = document.querySelector('.logo-a');
       var h2 = document.querySelector('.h2');
       var h3 = document.querySelector('.h3');
       var h4 = document.querySelector('.h4');
-      var end = document.querySelector('.end');
+      var h5 = document.querySelector('.h5');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
 
@@ -223,20 +223,17 @@
         bannerTL
           .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=368', ease: Linear.easeIn }, '-=.25')
+          .to([fr1RotateText1, fr1RotateText2], 1.5, { x: '-=431', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut }, '+=1')
-          .to([prod, fr2LogoA, h2, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1')
+          .to([fr2LogoA, h2, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h4, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
-          .to(prod, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
-          .to(end, .25, { autoAlpha: 1, ease: Sine.easeInOut }, '-=.25')
-
-          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
+          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -260,19 +257,18 @@
 
       function preload() {
         images = [
-          './images/end_frame.png',
-          './images/graphic_treatment_fr3_products.png',
-          './images/graphic_treatment_fr2_symptoms_full.png',
-          './images/graphic_treatment_fr1_h1.png',
-          './images/graphic_treatment_fr3_bg_full.png',
-          './images/graphic_treatment_fr3_logo.png',
-          './images/graphic_treatment_fr2_static_text.png',
-          './images/graphic_treatment_fr3_h1.png',
-          './images/graphic_treatment_fr5_win_the_night.png',
-          './images/graphic_treatment_fr4_h1.png',
-          './images/graphic_treatment_fr1_bg.jpg',
-          './images/graphic_treatment_fr6_cta_text.png',
-          './images/graphic_treatment_fr2_your_racing_mind.png'
+          './images/graphic_treatment_160x600_fr1_bg.jpg',
+          './images/graphic_treatment_160x600_fr3_logo.png',
+          './images/graphic_treatment_160x600_fr2_static_text.png',
+          './images/graphic_treatment_160x600_fr2_symptoms_full.png',
+          './images/graphic_treatment_160x600_fr2_your_racing_mind.png',
+          './images/graphic_treatment_160x600_cta_text.png',
+          './images/graphic_treatment_160x600_legal.png',
+          './images/graphic_treatment_160x600_fr5_h1.png',
+          './images/graphic_treatment_160x600_fr4_h1.png',
+          './images/graphic_treatment_160x600_fr3_h1.png',
+          './images/graphic_treatment_160x600_fr3_products.png',
+          './images/graphic_treatment_160x600_fr1_logo.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -301,7 +297,7 @@
   </script>
 
 <body>
-  <div id="container" class="container b-300x250" style="background-color: #fff;">
+  <div id="container" class="container b-160x600" style="background-color: #fff;">
     <div class="banner-border"></div>
     <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <a class="legal-exit" href="javascript:void(window.open(window.clickTag))"></a>
@@ -309,24 +305,22 @@
 
 
       <div class="frame frame-1">
-        <img src="./images/graphic_treatment_fr1_bg.jpg" class="frame frame-1-bg" />
-        <img src="./images/graphic_treatment_fr1_h1.png" class="frame h1" />
-        <img src="./images/graphic_treatment_fr2_static_text.png" class="frame text--static" />
-        <img src="./images/graphic_treatment_fr2_symptoms_full.png" class="frame text--rotate-1" />
-        <img src="./images/graphic_treatment_fr2_your_racing_mind.png" class="frame text--rotate-2" />
+        <img src="./images/graphic_treatment_160x600_fr1_bg.jpg" class="frame frame-1-bg" />
+        <img src="./images/graphic_treatment_160x600_fr1_logo.png" class="frame h1" />
+        <img src="./images/graphic_treatment_160x600_fr2_static_text.png" class="frame text--static" />
+        <img src="./images/graphic_treatment_160x600_fr2_symptoms_full.png" class="frame text--rotate-1" />
+        <img src="./images/graphic_treatment_160x600_fr2_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
 
 
       <div class="frame frame-2">
-        <img src="./images/graphic_treatment_fr3_legal.png" class="frame legal" />
-        <img src="./images/graphic_treatment_fr3_bg_full.png" class="frame frame-2-bg" />
-        <img src="./images/graphic_treatment_fr3_logo.png" class="frame logo-a">
-        <img src="./images/graphic_treatment_fr3_products.png" class="frame products">
-        <img src="./images/graphic_treatment_fr3_h1.png" class="frame h2">
-        <img src="./images/graphic_treatment_fr4_h1.png" class="frame h3">
-        <img src="./images/graphic_treatment_fr5_win_the_night.png" class="frame h4">
-        <img src="./images/end_frame.png" class="frame end">
-        <img src="./images/graphic_treatment_fr6_cta_text.png" class="frame cta-text">
+        <img src="./images/graphic_treatment_160x600_legal.png" class="frame legal" />
+        <img src="./images/graphic_treatment_160x600_fr3_products.png" class="frame frame-2-bg" />
+        <img src="./images/graphic_treatment_160x600_fr3_logo.png" class="frame logo-a">
+        <img src="./images/graphic_treatment_160x600_fr3_h1.png" class="frame h2">
+        <img src="./images/graphic_treatment_160x600_fr4_h1.png" class="frame h3">
+        <img src="./images/graphic_treatment_160x600_fr5_h1.png" class="frame h4">
+        <img src="./images/graphic_treatment_160x600_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
       </div>
 
