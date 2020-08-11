@@ -120,7 +120,6 @@
       z-index: 3;
     }
 
-    .frame.end,
     .frame.logo-a {
       z-index: 4;
     }
@@ -223,17 +222,17 @@
         bannerTL
           .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], 1.5, { x: '-=431', ease: Linear.easeIn }, '-=.25')
+          .to([fr1RotateText1, fr1RotateText2], 1.75, { x: '-=431', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1')
+          .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1.5')
           .to([fr2LogoA, h2, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h4, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
-          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.75')
 
 
         // setTimeout(function () {

@@ -216,16 +216,16 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
+          .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.75')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], .75, { y: '+=156', ease: Linear.easeIn }, '-=.25')
+          .to([fr1RotateText1, fr1RotateText2], 1, { y: '+=156', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr1, fr2], .5, { x: '+=728', ease: Sine.easeOut }, '+=1')
+          .to([fr1, fr2], .5, { x: '+=728', ease: Sine.easeOut }, '+=1.5')
           .to([h2, legal, legalExit, pharma], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
 
           .to(pharma, .25, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
           .to(h4, .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
