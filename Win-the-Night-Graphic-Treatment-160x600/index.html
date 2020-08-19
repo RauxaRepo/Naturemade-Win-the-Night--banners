@@ -219,8 +219,7 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-
-          .to([fr1RotateText1, fr1RotateText2], 1.75, { x: '-=428', ease: Linear.easeIn }, '+=.5')
+          .to([fr1RotateText1, fr1RotateText2], 2, { x: '-=428', ease: Linear.easeIn }, '+=1')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
           .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1.5')
@@ -228,9 +227,7 @@
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to(h4, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-
-          .to([ctaText, ctaBtn, slogan2], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.75')
+          .to([h4, ctaText, ctaBtn, slogan2], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
 
         // setTimeout(function () {
