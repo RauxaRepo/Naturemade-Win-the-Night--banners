@@ -82,22 +82,25 @@
       z-index: 1;
     }
 
-    .h1,
-    .frame.logo {
-      z-index: 2;
-      opacity: 1;
-    }
-
+    .frame.slogan,
+    .frame.logo-1,
     .frame.text--static,
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
       z-index: 2;
+      opacity: 1;
+    }
+
+    .frame.logo-2,
+    .frame.slogan-2 {
+      z-index: 4
     }
 
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
-      height: auto;
-      top: -567px;
+      height: 600px;
+      width: auto;
+      left: -103px;
     }
 
 
@@ -109,18 +112,13 @@
 
     .frame.h2,
     .frame.h3,
-    .frame.h4,
-    .frame.h5 {
+    .frame.h4 {
       z-index: 3;
     }
 
     .frame-2-bg {
       opacity: 1;
       z-index: 3;
-    }
-
-    .frame.logo-a {
-      z-index: 4;
     }
 
     .frame.legal,
@@ -195,20 +193,18 @@
 
       // list all animating elements
       var fr1 = document.querySelector('.frame-1');
-      var h1 = document.querySelector('.h1');
+      var logo2 = document.querySelector('.logo-2');
+      var slogan2 = document.querySelector('.slogan-2');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var legal = document.querySelector('.legal');
-      var fr2LogoA = document.querySelector('.logo-a');
       var h2 = document.querySelector('.h2');
       var h3 = document.querySelector('.h3');
       var h4 = document.querySelector('.h4');
-      var h5 = document.querySelector('.h5');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
-
 
 
       // timelines
@@ -219,19 +215,15 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
-          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=565', ease: Linear.easeIn }, '-=.25')
+          .to([fr1RotateText1, fr1RotateText2], 2, { x: '-=554', ease: Linear.easeIn }, '+=1')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
           .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1.5')
-          .to([fr2LogoA, h2, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([h2, legal, legalExit, logo2], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to(h4, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-
-          .to([ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=.75')
+          .to([h4, slogan2, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
 
         // setTimeout(function () {
@@ -256,17 +248,17 @@
       function preload() {
         images = [
           './images/graphic_treatment_300x600_fr1_bg.png',
-          './images/graphic_treatment_300x600_fr3_logo.png',
-          './images/graphic_treatment_300x600_fr2_static_text.png',
-          './images/graphic_treatment_300x600_fr2_symptoms_full.png',
-          './images/graphic_treatment_300x600_fr2_your_racing_mind.png',
+          './images/graphic_treatment_300x600_fr1_logo.png',
+          './images/graphic_treatment_300x600_fr1_static_text.png',
+          './images/graphic_treatment_300x600_fr1_symptoms_full.png',
+          './images/graphic_treatment_300x600_fr1_your_racing_mind.png',
           './images/graphic_treatment_300x600_cta_text.png',
           './images/graphic_treatment_300x600_legal.png',
           './images/graphic_treatment_300x600_fr5_h1.png',
           './images/graphic_treatment_300x600_fr4_h1.png',
           './images/graphic_treatment_300x600_fr3_h1.png',
           './images/graphic_treatment_300x600_fr3_products.png',
-          './images/graphic_treatment_300x600_fr1_logo.png'
+          './images/graphic_treatment_300x600_fr1_win_the_night.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -304,17 +296,19 @@
 
       <div class="frame frame-1">
         <img src="./images/graphic_treatment_300x600_fr1_bg.png" class="frame frame-1-bg" />
-        <img src="./images/graphic_treatment_300x600_fr1_logo.png" class="frame h1" />
-        <img src="./images/graphic_treatment_300x600_fr2_static_text.png" class="frame text--static" />
-        <img src="./images/graphic_treatment_300x600_fr2_symptoms_full.png" class="frame text--rotate-1" />
-        <img src="./images/graphic_treatment_300x600_fr2_your_racing_mind.png" class="frame text--rotate-2" />
+        <img src="./images/graphic_treatment_300x600_fr1_logo.png" class="frame logo-1" />
+        <img src="./images/graphic_treatment_300x600_fr1_win_the_night.png" class="frame slogan" />
+        <img src="./images/graphic_treatment_300x600_fr1_static_text.png" class="frame text--static" />
+        <img src="./images/graphic_treatment_300x600_fr1_symptoms_full.png" class="frame text--rotate-1" />
+        <img src="./images/graphic_treatment_300x600_fr1_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
 
 
       <div class="frame frame-2">
         <img src="./images/graphic_treatment_300x600_legal.png" class="frame legal" />
+        <img src="./images/graphic_treatment_300x600_fr1_logo.png" class="frame logo-2" />
+        <img src="./images/graphic_treatment_300x600_fr1_win_the_night.png" class="frame slogan-2" />
         <img src="./images/graphic_treatment_300x600_fr3_products.png" class="frame frame-2-bg" />
-        <img src="./images/graphic_treatment_300x600_fr3_logo.png" class="frame logo-a">
         <img src="./images/graphic_treatment_300x600_fr3_h1.png" class="frame h2">
         <img src="./images/graphic_treatment_300x600_fr4_h1.png" class="frame h3">
         <img src="./images/graphic_treatment_300x600_fr5_h1.png" class="frame h4">
