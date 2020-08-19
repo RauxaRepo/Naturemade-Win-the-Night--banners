@@ -5,7 +5,7 @@
   <meta charset="utf-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <title></title>
-  <meta name="ad.size" content="width=300,height=600">
+  <meta name="ad.size" content="width=300,height=250">
   <script type="text/javascript">
     var clickTag = "https://www.google.com/";
   </script>
@@ -40,16 +40,16 @@
       display: block;
     }
 
-    .b-300x600 {
+    .b-300x250 {
       width: 300px;
-      height: 600px;
+      height: 250px;
       padding: 0;
     }
 
     /*CTA BTN*/
     .btn-container {
       width: 300px;
-      height: 600px;
+      height: 250px;
       background-color: transparent;
       position: absolute;
       top: 0;
@@ -73,7 +73,7 @@
 
     img {
       width: 300px;
-      height: 600px;
+      height: 250px;
     }
 
     .frame.frame-1,
@@ -82,43 +82,46 @@
       z-index: 1;
     }
 
-    .frame.slogan,
-    .frame.logo-1,
-    .frame.text--static,
-    .frame.text--rotate-1,
-    .frame.text--rotate-2 {
+    .h1,
+    .frame.logo {
       z-index: 2;
       opacity: 1;
     }
 
-    .frame.logo-2,
-    .frame.slogan-2 {
-      z-index: 4
+    .frame.text--static,
+    .frame.text--rotate-1,
+    .frame.text--rotate-2 {
+      z-index: 2;
     }
 
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
-      height: 600px;
-      width: auto;
-      left: -103px;
+      height: auto;
+      top: -364px;
     }
 
 
     .frame.frame-2 {
       opacity: 1;
       z-index: 3;
-      top: -600px;
+      top: -250px;
     }
 
     .frame.h2,
     .frame.h3,
-    .frame.h4 {
+    .frame.h4,
+    .frame.products {
       z-index: 3;
     }
 
     .frame-2-bg {
       opacity: 1;
       z-index: 3;
+    }
+
+    .frame.end,
+    .frame.logo-a {
+      z-index: 4;
     }
 
     .frame.legal,
@@ -129,11 +132,11 @@
     .cta-btn {
       background-color: #a60f2d;
       opacity: 0;
-      width: 107px;
-      height: 29px;
+      width: 89px;
+      height: 25px;
       border-radius: 2.5px;
-      top: 533px;
-      left: 96px;
+      top: 181px;
+      left: 195px;
       position: absolute;
       z-index: 4;
     }
@@ -143,13 +146,13 @@
     }
 
     .legal.hovered {
-      transform: matrix(1.01, 0, 0, 1.01, 0, 0);
+      transform: matrix(1.05, 0, 0, 1.05, -5, -5);
     }
 
     .banner-border {
       position: absolute;
       width: 298px;
-      height: 598px;
+      height: 248px;
       border: 1px solid #000000;
       pointer-events: none;
       z-index: 6;
@@ -187,24 +190,27 @@
 
       var bannerConfig = {
         width: 300,
-        height: 600
+        height: 250
       }
 
 
       // list all animating elements
       var fr1 = document.querySelector('.frame-1');
-      var logo2 = document.querySelector('.logo-2');
-      var slogan2 = document.querySelector('.slogan-2');
+      var h1 = document.querySelector('.h1');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var legal = document.querySelector('.legal');
+      var prod = document.querySelector('.products');
+      var fr2LogoA = document.querySelector('.logo-a');
       var h2 = document.querySelector('.h2');
       var h3 = document.querySelector('.h3');
       var h4 = document.querySelector('.h4');
+      var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
+
 
 
       // timelines
@@ -215,16 +221,21 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], 2, { autoAlpha: 1, ease: Sine.easeOut }, '+=.25')
-          .to([fr1RotateText1, fr1RotateText2], 1.5, { x: '-=554', ease: Linear.easeIn }, '-=.25')
+          .to(h1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
+          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=368', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1.5')
-          .to([h2, legal, legalExit, logo2], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
+
+          .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut }, '+=1')
+          .to([prod, fr2LogoA, h2, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to([h4, slogan2, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1')
+          .to(prod, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
+
+          .to(end, .5, { autoAlpha: 1, ease: Sine.easeInOut })
+          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -248,18 +259,18 @@
 
       function preload() {
         images = [
-          './images/graphic_treatment_300x600_fr1_bg.png',
-          './images/graphic_treatment_300x600_fr1_logo.png',
-          './images/graphic_treatment_300x600_fr1_static_text.png',
-          './images/graphic_treatment_300x600_fr1_symptoms_full.png',
-          './images/graphic_treatment_300x600_fr1_your_racing_mind.png',
-          './images/graphic_treatment_300x600_cta_text.png',
-          './images/graphic_treatment_300x600_legal.png',
-          './images/graphic_treatment_300x600_fr5_h1.png',
-          './images/graphic_treatment_300x600_fr4_h1.png',
-          './images/graphic_treatment_300x600_fr3_h1.png',
-          './images/graphic_treatment_300x600_fr3_products.png',
-          './images/graphic_treatment_300x600_fr1_win_the_night.png'
+          './images/end_frame.png',
+          './images/graphic_single_product_fr3_product.png',
+          './images/graphic_single_product_fr2_symptoms_full.png',
+          './images/graphic_single_product_fr1_h1.png',
+          './images/graphic_single_product_fr3_bg_full.png',
+          './images/graphic_single_product_fr3_logo.png',
+          './images/graphic_single_product_fr2_static_text.png',
+          './images/graphic_single_product_fr3_h1.png',
+          './images/graphic_single_product_fr4_h1.png',
+          './images/graphic_single_product_fr1_bg.jpg',
+          './images/graphic_single_product_fr6_cta_text.png',
+          './images/graphic_single_product_fr2_your_9am_meeting.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -288,7 +299,7 @@
   </script>
 
 <body>
-  <div id="container" class="container b-300x600" style="background-color: #fff;">
+  <div id="container" class="container b-300x250" style="background-color: #fff;">
     <div class="banner-border"></div>
     <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <a class="legal-exit" href="javascript:void(window.open(window.clickTag))"></a>
@@ -296,24 +307,23 @@
 
 
       <div class="frame frame-1">
-        <img src="./images/graphic_treatment_300x600_fr1_bg.png" class="frame frame-1-bg" />
-        <img src="./images/graphic_treatment_300x600_fr1_logo.png" class="frame logo-1" />
-        <img src="./images/graphic_treatment_300x600_fr1_win_the_night.png" class="frame slogan" />
-        <img src="./images/graphic_treatment_300x600_fr1_static_text.png" class="frame text--static" />
-        <img src="./images/graphic_treatment_300x600_fr1_symptoms_full.png" class="frame text--rotate-1" />
-        <img src="./images/graphic_treatment_300x600_fr1_your_racing_mind.png" class="frame text--rotate-2" />
+        <img src="./images/graphic_single_product_fr1_bg.jpg" class="frame frame-1-bg" />
+        <img src="./images/graphic_single_product_fr1_h1.png" class="frame h1" />
+        <img src="./images/graphic_single_product_fr2_static_text.png" class="frame text--static" />
+        <img src="./images/graphic_single_product_fr2_symptoms_full.png" class="frame text--rotate-1" />
+        <img src="./images/graphic_single_product_fr2_your_9am_meeting.png" class="frame text--rotate-2" />
       </div>
 
 
       <div class="frame frame-2">
-        <img src="./images/graphic_treatment_300x600_legal.png" class="frame legal" />
-        <img src="./images/graphic_treatment_300x600_fr1_logo.png" class="frame logo-2" />
-        <img src="./images/graphic_treatment_300x600_fr1_win_the_night.png" class="frame slogan-2" />
-        <img src="./images/graphic_treatment_300x600_fr3_products.png" class="frame frame-2-bg" />
-        <img src="./images/graphic_treatment_300x600_fr3_h1.png" class="frame h2">
-        <img src="./images/graphic_treatment_300x600_fr4_h1.png" class="frame h3">
-        <img src="./images/graphic_treatment_300x600_fr5_h1.png" class="frame h4">
-        <img src="./images/graphic_treatment_300x600_cta_text.png" class="frame cta-text">
+        <img src="./images/graphic_single_product_fr3_legal.png" class="frame legal" />
+        <img src="./images/graphic_single_product_fr3_bg_full.png" class="frame frame-2-bg" />
+        <img src="./images/graphic_single_product_fr3_logo.png" class="frame logo-a">
+        <img src="./images/graphic_single_product_fr3_product.png" class="frame products">
+        <img src="./images/graphic_single_product_fr3_h1.png" class="frame h2">
+        <img src="./images/graphic_single_product_fr4_h1.png" class="frame h3">
+        <img src="./images/end_frame.png" class="frame end">
+        <img src="./images/graphic_single_product_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
       </div>
 
