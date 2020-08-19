@@ -226,15 +226,13 @@
           .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=368', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-
           .to([fr1, fr2], .5, { y: '+=250', ease: Sine.easeOut }, '+=1')
           .to([prod, fr2LogoA, h2, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-          .to([h3, prod], .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to(end, .5, { autoAlpha: 1, ease: Sine.easeInOut }, '-=.25')
+          .to([h3, prod], .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
 
-          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([ctaText, ctaBtn, end], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
         // setTimeout(function () {
         //   bannerTL.pause();
