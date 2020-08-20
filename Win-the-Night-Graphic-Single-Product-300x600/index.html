@@ -93,7 +93,7 @@
 
     .frame.logo-2,
     .frame.slogan-2 {
-      z-index: 4
+      z-index: 5
     }
 
     .frame.text--rotate-1,
@@ -101,6 +101,10 @@
       height: 600px;
       width: auto;
       left: -103px;
+    }
+
+    .frame.end {
+      z-index: 4;
     }
 
 
@@ -116,9 +120,15 @@
       z-index: 3;
     }
 
-    .frame-2-bg {
+    .frame-2-bg, 
+    .prod {
       opacity: 1;
       z-index: 3;
+    }
+
+    .frame-3-bg {
+      opacity: 1;
+      z-index: 4;
     }
 
     .frame.legal,
@@ -205,7 +215,8 @@
       var h4 = document.querySelector('.h4');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
-
+      var prod = document.querySelector('.prod');
+      var end = document.querySelector('.end');
 
       // timelines
       var bannerTL;
@@ -215,7 +226,8 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to([fr1RotateText1, fr1RotateText2], 2, { x: '-=554', ease: Linear.easeIn }, '+=1')
+          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], 2, { autoAlpha: 1, ease: Sine.easeOut }, '+=.25')
+          .to([fr1RotateText1, fr1RotateText2], 1.5, { x: '-=554', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
           .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1.5')
@@ -223,7 +235,8 @@
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to([h4, slogan2, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to(prod, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
+          .to([end, slogan2, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
 
         // setTimeout(function () {
@@ -251,14 +264,16 @@
           './images/graphic_treatment_300x600_fr1_logo.png',
           './images/graphic_treatment_300x600_fr1_static_text.png',
           './images/graphic_treatment_300x600_fr1_symptoms_full.png',
-          './images/graphic_treatment_300x600_fr1_your_racing_mind.png',
+          './images/graphic_treatment_300x600_fr1_your_9am_meeting.png',
           './images/graphic_treatment_300x600_cta_text.png',
           './images/graphic_treatment_300x600_legal.png',
-          './images/graphic_treatment_300x600_fr5_h1.png',
+          // './images/graphic_treatment_300x600_fr5_h1.png',
           './images/graphic_treatment_300x600_fr4_h1.png',
+          './images/graphic_treatment_300x600_fr3_bg_full.png',
           './images/graphic_treatment_300x600_fr3_h1.png',
-          './images/graphic_treatment_300x600_fr3_products.png',
-          './images/graphic_treatment_300x600_fr1_win_the_night.png'
+          './images/graphic_treatment_300x600_fr3_product.png',
+          './images/graphic_treatment_300x600_fr1_win_the_night.png',
+          './images/end_frame.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -300,18 +315,19 @@
         <img src="./images/graphic_treatment_300x600_fr1_win_the_night.png" class="frame slogan" />
         <img src="./images/graphic_treatment_300x600_fr1_static_text.png" class="frame text--static" />
         <img src="./images/graphic_treatment_300x600_fr1_symptoms_full.png" class="frame text--rotate-1" />
-        <img src="./images/graphic_treatment_300x600_fr1_your_racing_mind.png" class="frame text--rotate-2" />
+        <img src="./images/graphic_treatment_300x600_fr1_your_9am_meeting.png" class="frame text--rotate-2" />
       </div>
 
 
       <div class="frame frame-2">
         <img src="./images/graphic_treatment_300x600_legal.png" class="frame legal" />
+        <img src="./images/graphic_treatment_300x600_fr3_bg_full.png" class="frame frame-2-bg" />
         <img src="./images/graphic_treatment_300x600_fr1_logo.png" class="frame logo-2" />
         <img src="./images/graphic_treatment_300x600_fr1_win_the_night.png" class="frame slogan-2" />
-        <img src="./images/graphic_treatment_300x600_fr3_products.png" class="frame frame-2-bg" />
+        <img src="./images/graphic_treatment_300x600_fr3_product.png" class="frame prod" />
         <img src="./images/graphic_treatment_300x600_fr3_h1.png" class="frame h2">
         <img src="./images/graphic_treatment_300x600_fr4_h1.png" class="frame h3">
-        <img src="./images/graphic_treatment_300x600_fr5_h1.png" class="frame h4">
+        <img src="./images/end_frame.png" class="frame end">
         <img src="./images/graphic_treatment_300x600_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
       </div>
