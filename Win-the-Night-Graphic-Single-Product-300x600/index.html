@@ -121,6 +121,11 @@
       z-index: 3;
     }
 
+    .frame-3-bg {
+      opacity: 1;
+      z-index: 4;
+    }
+
     .frame.legal,
     .frame.cta-text {
       z-index: 5;
@@ -205,7 +210,7 @@
       var h4 = document.querySelector('.h4');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
-
+      var allProducts = document.querySelector('.frame-3-bg');
 
       // timelines
       var bannerTL;
@@ -224,7 +229,7 @@
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to([h4, slogan2, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to([h4, slogan2, ctaText, ctaBtn, allProducts], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
 
         // setTimeout(function () {
@@ -314,6 +319,7 @@
         <img src="./images/graphic_treatment_300x600_fr4_h1.png" class="frame h3">
         <img src="./images/graphic_treatment_300x600_fr5_h1.png" class="frame h4">
         <img src="./images/graphic_treatment_300x600_cta_text.png" class="frame cta-text">
+        <img src="./images/graphic_treatment_300x600_fr5_all_products.png" class="frame frame-3-bg">
         <div class="cta-btn"></div>
       </div>
 
