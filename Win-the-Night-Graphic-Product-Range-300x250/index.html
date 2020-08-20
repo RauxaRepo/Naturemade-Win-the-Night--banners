@@ -107,6 +107,8 @@
       z-index: 4
     }
 
+    .frame.logo,
+    .frame.slogan,
     .frame.end {
       z-index: 4;
     }
@@ -200,7 +202,8 @@
       var legal = document.querySelector('.legal');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
-      var framee = document.querySelector('.framee')
+      var logo = document.querySelector('.logo');
+      var slogan = document.querySelector('.slogan');
 
 
       // timelines
@@ -227,7 +230,7 @@
           .to(prod3, .75, { x: '+=300', ease: Sine.easeInOut }, '-=1')
           .to(prod2, .15, { autoAlpha: 0, ease: Linear.easeIn }, '-=.3')
 
-          .to([ctaText, ctaBtn, end], .5, { autoAlpha: 1, ease: Sine.easeInOut }, '+=2')
+          .to([ctaText, ctaBtn, end, logo, slogan], .5, { autoAlpha: 1, ease: Sine.easeInOut }, '+=2')
 
 
         // setTimeout(function () {
@@ -262,6 +265,7 @@
           './images/graphic_prod_range_fr4_h1.png',
           './images/graphic_prod_range_fr4_melatonin_theanine.png',
           './images/graphic_prod_range_fr5_cta_text.png',
+          './images/graphic_prod_range_fr6_logo.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -299,9 +303,7 @@
 
       <div class="frame frame-1">
         <img src="./images/graphic_prod_range_fr1_bg.png" class="frame frame-1-bg" />
-        <div class="framee">
-          <img src="./images/graphic_prod_range_fr1_h1.png" class="frame h1" />
-        </div>
+        <img src="./images/graphic_prod_range_fr1_h1.png" class="frame h1" />
         <img src="./images/graphic_prod_range_fr3_melatonin_gummies.png" class="frame product-1" />
         <img src="./images/graphic_prod_range_fr2_h1.png" class="frame h2" />
 
@@ -314,6 +316,8 @@
         <img src="./images/end_frame.png" class="frame end">
         <img src="./images/graphic_prod_range_fr1_legal.png" class="frame legal" />
         <img src="./images/graphic_prod_range_fr5_cta_text.png" class="frame cta-text">
+        <img src="./images/graphic_prod_range_fr5_logo.png" class="frame logo" />
+        <img src="images/graphic_prod_range_fr5_win_the_night.png" class="frame slogan" />
         <div class="cta-btn"></div>
       </div>
 
