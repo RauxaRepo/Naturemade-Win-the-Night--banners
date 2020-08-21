@@ -91,7 +91,8 @@
     .h3,
     .h4 {
       transform: rotateX(180deg);
-      opacity: 0;
+      transform-origin: 100% 100%;
+      opacity: 1;
       z-index: 3;
     }
 
@@ -214,23 +215,25 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to(h1, 1, { rotationX: '+=180', ease: Sine.easeInOut }, '+=1.5')
-          .to(h1, 0, { autoAlpha: 0, ease: Sine.easeInOut }, '-=.65')
-          .to(h2, 1, { rotationX: '+=180', autoAlpha: 1, ease: Sine.easeInOut }, '-=1')
+          .to(h1, 1, { rotationX: '+=180', transformOrigin: "100% 100%", ease: Sine.easeInOut }, '+=1.5')
+          .to(h2, 1, { autoAlpha: 1, rotationX: '+=180', transformOrigin: "0% 0%", ease: Sine.easeInOut }, '-=1')
 
-          .to(h2, 1, { rotationX: '+=180', autoAlpha: 0, ease: Sine.easeInOut }, '+=2')
-          .to(h2, 0, { autoAlpha: 0, ease: Sine.easeInOut }, '-=.65')
-          .to(h3, 1, { rotationX: '+=180', autoAlpha: 1, ease: Sine.easeInOut }, '-=1')
-          .to(prod2, .75, { x: '+=300', ease: Sine.easeInOut }, '-=1')
-          .to(prod1, .15, { autoAlpha: 0, ease: Linear.easeIn }, '-=.3')
+          .to(h2, 1, { rotationX: '+=180', transformOrigin: "100% 100%", ease: Sine.easeInOut }, '+=2')
+          .to(h3, 1, { rotationX: '+=180', transformOrigin: "0% 0%", ease: Sine.easeInOut }, '-=1')
+          .to(prod2, 1, { x: '+=300', ease: Sine.easeInOut }, '-=1')
+          .to(prod1, .15, { autoAlpha: 0, ease: Linear.easeIn }, '-=.1')
 
-          .to(h3, 1, { rotationX: '+=180', autoAlpha: 0, ease: Sine.easeInOut }, '+=2')
-          .to(h3, 0, { autoAlpha: 0, ease: Sine.easeInOut }, '-=.65')
-          .to(h4, 1, { rotationX: '+=180', autoAlpha: 1, ease: Sine.easeInOut }, '-=1')
-          .to(prod3, .75, { x: '+=300', ease: Sine.easeInOut }, '-=1')
-          .to(prod2, .15, { autoAlpha: 0, ease: Linear.easeIn }, '-=.3')
+          .to(h3, 1, { rotationX: '+=180', transformOrigin: "100% 100%", ease: Sine.easeInOut }, '+=2')
+          .to(h4, 1, { rotationX: '+=180', transformOrigin: "0% 0%", ease: Sine.easeInOut }, '-=1')
+          .to(prod3, 1, { x: '+=300', ease: Sine.easeInOut }, '-=1')
+          .to(prod2, .15, { autoAlpha: 0, ease: Linear.easeIn }, '-=.1')
 
           .to([ctaText, ctaBtn, end, logo, slogan], .5, { autoAlpha: 1, ease: Sine.easeInOut }, '+=2')
+
+        // OPTION 2?
+        // .to(h1, 1, { rotationX: '+=45', y: '+=150', ease: Sine.easeInOut  }, '+=1.5')
+        // .to(h1, 5, { transformOrigin: "0% 0% 50px", ease: Sine.easeInOut  }, '-=.5')
+
 
 
         // setTimeout(function () {
