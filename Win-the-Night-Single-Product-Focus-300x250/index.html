@@ -225,14 +225,12 @@
           .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=368', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr2, prod1, fr2LogoA, fr2H1, legal, legalExit], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
+          .to([fr2, prod1, fr2LogoA, fr2H1, legal, legalExit], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
-          .to([fr3, pharma, end, fr5LogoB], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=2')
-          .to(prod1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
-
-          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
+          .to([fr3, pharma, end, fr5LogoB, ctaBtn, ctaText], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=2')
+          .to(prod1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
