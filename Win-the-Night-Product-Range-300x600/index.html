@@ -101,12 +101,7 @@
       top: -364px;
     }
 
-    .frame.table {
-      transform: scale(1.05);
-    }
-
     .frame.frame-2,
-    .frame.table,
     .frame.h1,
     .frame.h2,
     .frame.logo-b,
@@ -115,12 +110,12 @@
     }
 
     .frame-2-bg {
-      transform: scale(1.4);
+      /* transform: scale(1.4); */
       width: 300px;
       height: auto;
       position: absolute;
-      left: 18%;
-      top: 16%;
+      left: 0%;
+      top: 0%;
     }
 
     .frame.product-shadow {
@@ -216,7 +211,6 @@
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var legal = document.querySelector('.legal');
-      var table = document.querySelector('.table');
       var shadow = document.querySelector('.product-shadow');
       var fr2LogoA = document.querySelector('.logo-a');
       var fr2H1 = document.querySelector('.h1');
@@ -242,7 +236,7 @@
           .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=368', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr2, table, shadow, fr2LogoA, fr2H1, legal, legalExit], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
+          .to([fr2, shadow, fr2LogoA, fr2H1, legal, legalExit], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2.25')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
@@ -285,7 +279,6 @@
           './images/prod_range_fr3_legal.png',
           './images/prod_range_fr4_h1.png',
           './images/prod_range_fr3_fr4.jpg',
-          './images/prod_range_fr3_table.png',
           './images/prod_range_fr6_cta_text.png',
         ];
 
@@ -332,7 +325,6 @@
         <img src="./images/prod_range_fr3_fr4.jpg" class="frame-2-bg" />
         <img src="./images/prod_range_fr3_h1.png" class="frame h1">
         <img src="./images/prod_range_fr4_h1.png" class="frame h2">
-        <img src="./images/prod_range_fr3_table.png" class="frame table">
       </div>
 
       <div class="frame product-shadow"></div>
