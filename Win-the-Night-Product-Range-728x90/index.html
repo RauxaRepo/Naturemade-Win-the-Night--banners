@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title></title>
+  <meta name="ad.size" content="width=728,height=90">
+  <script type="text/javascript">
+    var clickTag = "https://www.google.com/";
+    var clickTag2 = "https://www.google.com/";
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+  <style type="text/css">
+    body {
+      padding: 0;
+      margin: 0;
+    }
+
+    * {
+      padding: 0;
+    }
+
+    .container {
+      margin: 0 auto;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .banner-content {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+      display: none;
+      z-index: 1;
+    }
+
+    .banner-content.banner-content--active {
+      opacity: 1;
+      display: block;
+    }
+
+    .b-728x90 {
+      width: 728px;
+      height: 90px;
+      padding: 0;
+    }
+
+    /*CTA BTN*/
+    .btn-container {
+      width: 728px;
+      height: 90px;
+      background-color: transparent;
+      position: absolute;
+      top: 0;
+      left: 0;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      z-index: 100;
+      cursor: pointer;
+    }
+
+
+    .frame {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      opacity: 0;
+    }
+
+    img {
+      width: 728px;
+      height: 90px;
+    }
+
+    .frame.frame-1 {
+      z-index: 1;
+      opacity: 1;
+      background-image: url('./images/prod_range_fr1.jpg');
+      background-size: contain;
+    }
+
+    .frame.logo {
+      z-index: 2;
+      opacity: 1;
+    }
+
+    .frame.text--static,
+    .frame.text--rotate-1,
+    .frame.text--rotate-2 {
+      z-index: 2;
+    }
+
+    .frame.text--rotate-1,
+    .frame.text--rotate-2 {
+      height: auto;
+      top: -172px;
+    }
+
+    .frame.frame-2,
+    .frame.h1,
+    .frame.h2,
+    .frame.logo-b,
+    .frame.h3 {
+      z-index: 3;
+    }
+
+    .frame-2-bg {
+      /* transform: scale(1.4); */
+      width: 728px;
+      height: auto;
+      position: absolute;
+      left: 0;
+      top: 0;
+    }
+
+    .frame.product-shadow {
+      z-index: 5;
+      background-image: url('./images/prod_range_all_prod_shadow.png');
+      background-size: contain;
+    }
+
+    .frame.frame-3,
+    .frame.logo-3,
+    .frame.end,
+    .frame.logo-a {
+      z-index: 4;
+    }
+
+    .frame.cta-text {
+      z-index: 5;
+    }
+
+    .frame.frame-4 {
+      z-index: 6;
+      opacity: 1;
+    }
+
+    .cta-btn {
+      background-color: #a60f2d;
+      opacity: 0;
+      width: 115px;
+      height: 31px;
+      border-radius: 2.5px;
+      top: 30px;
+      left: 568px;
+      position: absolute;
+      z-index: 4;
+    }
+
+    .cta-btn.hovered {
+      transform: scale(1.05);
+    }
+
+    .legal.hovered {
+      transform: matrix(1.02, 0, 0, 1.02, -5, 0);
+    }
+
+    .banner-border {
+      position: absolute;
+      width: 726px;
+      height: 88px;
+      border: 1px solid #000000;
+      pointer-events: none;
+      z-index: 6;
+      top: 0px;
+      left: 0px;
+    }
+
+    .exit {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      z-index: 5;
+      top: 0;
+      left: 0;
+      cursor: pointer;
+    }
+
+    .legal-exit {
+      width: 50px;
+      height: 20px;
+      bottom: 0;
+      position: absolute;
+      right: 0;
+      z-index: 5;
+    }
+  </style>
+  <script type="text/javascript" charset="utf-8">
+    document.addEventListener("DOMContentLoaded", function (e) {
+      // variables
+      var loadedImage = 0;
+      var images = [];
+      var exit = document.querySelector('.exit');
+      var legalExit = document.querySelector('.legal-exit');
+      var bannerContent = document.querySelector('.banner-content');
+      var bannerConfig = {
+        width: 728,
+        height: 90
+      }
+
+
+      // list all animating elements
+      var fr1Logo = document.querySelector('.logo');
+      var fr1StaticText = document.querySelector('.text--static');
+      var fr1RotateText1 = document.querySelector('.text--rotate-1');
+      var fr1RotateText2 = document.querySelector('.text--rotate-2');
+      var fr2 = document.querySelector('.frame-2');
+      var legal = document.querySelector('.legal');
+      var table = document.querySelector('.table');
+      var shadow = document.querySelector('.product-shadow');
+      var fr2LogoA = document.querySelector('.logo-a');
+      var fr2H1 = document.querySelector('.h1');
+      var fr2H2 = document.querySelector('.h2');
+
+      var fr3 = document.querySelector('.frame-3');
+      var fr3Logo3 = document.querySelector('.logo-3');
+      var pharma = document.querySelector('.h4');
+      var end = document.querySelector('.end');
+      var ctaText = document.querySelector('.cta-text');
+      var ctaBtn = document.querySelector('.cta-btn');
+
+
+      // timelines
+      var bannerTL;
+
+      function bannerAnimation() {
+
+
+        bannerTL = new TimelineMax({ paused: false });
+        bannerTL
+          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=145', ease: Linear.easeIn }, '+=1')
+          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
+          .to([fr1Logo,fr1StaticText, fr1RotateText1, fr1RotateText2], .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
+
+          .to([fr2,fr2LogoA,fr2H1,shadow,legal,legalExit,pharma], .5, { autoAlpha: 1, ease: Sine.easeOut })
+          .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2.25')
+          .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+
+          // .to(fr3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '+=2.5')
+          .to([pharma,fr2H2], .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2.5')
+
+          .to([end, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+
+
+        // setTimeout(function () {
+        //   bannerTL.pause();
+        // }, 15000)
+
+        function ctaOnHover() {
+          ctaBtn.classList.toggle('hovered');
+        }
+
+        function legalOnHover() {
+          legal.classList.toggle('hovered');
+        }
+
+        exit.addEventListener('mouseenter', e => { ctaOnHover() });
+        exit.addEventListener('mouseout', e => { ctaOnHover() })
+
+        legalExit.addEventListener('mouseenter', e => { legalOnHover() });
+        legalExit.addEventListener('mouseout', e => { legalOnHover() })
+      }
+
+      function preload() {
+        images = [
+          './images/end_frame.png',
+          './images/prod_range_all_prod_shadow.png',
+          './images/prod_range_fr1.jpg',
+          './images/prod_range_fr1_logo.png',
+          './images/prod_range_fr2_static_text.png',
+          './images/prod_range_fr2_symptoms_full.png',
+          './images/prod_range_fr2_your_racing_mind.png',
+          './images/prod_range_fr3_fr4.jpg',
+          './images/prod_range_fr3_logo.png',
+          './images/prod_range_fr3_h1.png',
+          './images/prod_range_fr3_legal.png',
+          './images/prod_range_fr4_h1.png',
+          './images/prod_range_fr5_h1.png',
+          './images/prod_range_fr5_h1.png',
+          './images/prod_range_fr6_cta_text.png',
+        ];
+
+        for (var i = 0; i < images.length; i++) {
+          var imageObj = new Image();
+          imageObj.src = images[i];
+          imageObj.addEventListener("load", iLoad, false);
+        }
+
+      }
+      function iLoad() {
+        loadedImage++;
+        if (images.length == loadedImage) {
+          init();
+        }
+      }
+
+      function init() {
+
+        bannerContent.classList.add('banner-content--active');
+        bannerAnimation();
+
+      }
+
+      preload();
+    });
+  </script>
+
+<body>
+  <div id="container" class="container b-728x90" style="background-color: #fff;">
+    <div class="banner-border"></div>
+    <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
+    <a class="legal-exit" href="javascript:void(window.open(window.clickTag2))"></a>
+    <div class="banner-content">
+
+      <div class="frame frame-1">
+        <img src="./images/prod_range_fr1_logo.png" class="frame logo" />
+        <img src="./images/prod_range_fr2_static_text.png" class="frame text--static" />
+        <img src="./images/prod_range_fr2_symptoms_full.png" class="frame text--rotate-1" />
+        <img src="./images/prod_range_fr2_your_racing_mind.png" class="frame text--rotate-2" />
+      </div>
+
+      <div class="frame frame-2">
+        <img src="./images/prod_range_fr3_fr4.jpg" class="frame-2-bg" />
+        <img src="./images/prod_range_fr3_h1.png" class="frame h1">
+        <img src="./images/prod_range_fr4_h1.png" class="frame h2">
+        <img src="./images/prod_range_fr5_h1.png" class="frame h4">
+      </div>
+
+      <div class="frame product-shadow"></div>
+
+      <div class="frame frame-4">
+        <img src="./images/prod_range_fr6_cta_text.png" class="frame cta-text">
+        <div class="cta-btn"></div>
+        <img src="./images/prod_range_fr3_logo.png" class="frame logo-a">
+        <img src='./images/prod_range_fr3_legal.png' class="frame legal">
+        <img src="./images/end_frame.png" class="frame end">
+      </div>
+
+    </div>
+</body>
+
+</html>
