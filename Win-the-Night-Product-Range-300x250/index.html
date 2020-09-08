@@ -104,11 +104,12 @@
     .frame.frame-2,
     .frame.h1,
     .frame.h2,
-    .frame.logo-b,
-    .frame.h3 {
+    .frame.logo-b {
       z-index: 3;
     }
 
+<<<<<<< HEAD
+=======
     .frame-2-bg {
       /* transform: scale(1.4); */
       width: 300px;
@@ -118,6 +119,7 @@
       top: 0%;
     }
 
+>>>>>>> feature/RPM-149_set1_Single_Product_resizes_160x600
     .frame.product-shadow {
       z-index: 5;
       background-image: url('./images/prod_range_all_prod_shadow.png');
@@ -127,7 +129,8 @@
     .frame.frame-3,
     .frame.logo-3,
     .frame.end,
-    .frame.logo-a {
+    .frame.logo-a,
+    .frame.h3 {
       z-index: 4;
     }
 
@@ -215,9 +218,9 @@
       var fr2LogoA = document.querySelector('.logo-a');
       var fr2H1 = document.querySelector('.h1');
       var fr2H2 = document.querySelector('.h2');
-
+      var fr5LogoB = document.querySelector('.logo-b');
+      var pharma = document.querySelector('.h3');
       var fr3 = document.querySelector('.frame-3');
-      var fr3Logo3 = document.querySelector('.logo-3');
       var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
@@ -234,16 +237,14 @@
           .to(fr1Logo, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=368', ease: Linear.easeIn }, '-=.25')
-          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
+          .to(fr1RotateText1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
           .to([fr2, shadow, fr2LogoA, fr2H1, legal, legalExit], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
-          .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
+          .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
-          .to(fr3, .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1.75')
-          .to(shadow, .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
-
-          .to([end, ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([fr3, end, ctaText, ctaBtn, pharma, fr5LogoB], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=2')
+          .to(shadow, .25, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -332,11 +333,13 @@
       <div class="frame frame-3">
         <img src="./images/end_frame.png" class="frame end">
         <img src="./images/prod_range_fr6_cta_text.png" class="frame cta-text">
+        <img src="./images/prod_range_fr5_h1.png" class="frame h3">
         <div class="cta-btn"></div>
       </div>
 
       <div class="frame frame-4">
         <img src="./images/prod_range_fr3_logo.png" class="frame logo-a">
+        <img src="./images/prod_range_fr5_slogan.png" class="frame logo-b">
         <img src='./images/prod_range_fr3_legal.png' class="frame legal">
       </div>
 
