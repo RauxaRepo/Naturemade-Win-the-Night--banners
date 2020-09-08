@@ -104,14 +104,11 @@
 
     .frame.frame-2,
     .frame.h1,
-    .frame.h2,
-    .frame.logo-b,
-    .frame.h3 {
+    .frame.h2 {
       z-index: 3;
     }
 
     .frame-2-bg {
-      /* transform: scale(1.4); */
       width: 160px;
       height: auto;
       position: absolute;
@@ -126,9 +123,10 @@
     }
 
     .frame.frame-3,
-    .frame.logo-3,
     .frame.end,
-    .frame.logo-a {
+    .frame.logo-a,
+    .frame.h3,
+    .frame.slogan {
       z-index: 4;
     }
 
@@ -212,14 +210,13 @@
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var legal = document.querySelector('.legal');
-      var table = document.querySelector('.table');
       var shadow = document.querySelector('.product-shadow');
       var fr2LogoA = document.querySelector('.logo-a');
       var fr2H1 = document.querySelector('.h1');
       var fr2H2 = document.querySelector('.h2');
-
+      var h3 = document.querySelector('.h3');
+      var slogan = document.querySelector('.slogan');
       var fr3 = document.querySelector('.frame-3');
-      var fr3Logo3 = document.querySelector('.logo-3');
       var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
@@ -238,14 +235,14 @@
           .to([fr1RotateText1, fr1RotateText2], 2, { x: '-=428', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr2, table, shadow, fr2LogoA, fr2H1, legal, legalExit], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
+          .to([fr2, shadow, fr2LogoA, fr2H1, legal, legalExit], .5, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2.25')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
           .to(fr3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '+=2.5')
           .to(shadow, .75, { autoAlpha: 0, ease: Sine.easeOut }, '-=.75')
 
-          .to([end, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([end, ctaText, ctaBtn, slogan, h3], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -281,8 +278,9 @@
           './images/prod_range_fr3_legal.png',
           './images/prod_range_fr4_h1.png',
           './images/prod_range_fr3_fr4.jpg',
-          // './images/prod_range_fr3_table.png',
           './images/prod_range_fr6_cta_text.png',
+          './images/prod_range_fr5_h1.png',
+          './images/prod_range_fr5_slogan.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -328,7 +326,6 @@
         <img src="./images/prod_range_fr3_fr4.jpg" class="frame-2-bg" />
         <img src="./images/prod_range_fr3_h1.png" class="frame h1">
         <img src="./images/prod_range_fr4_h1.png" class="frame h2">
-        <!-- <img src="./images/prod_range_fr3_table.png" class="frame table"> -->
       </div>
 
       <div class="frame product-shadow"></div>
@@ -336,6 +333,8 @@
       <div class="frame frame-3">
         <img src="./images/end_frame.png" class="frame end">
         <img src="./images/prod_range_fr6_cta_text.png" class="frame cta-text">
+        <img src="./images/prod_range_fr5_slogan.png" class="frame slogan" />
+        <img src="./images/prod_range_fr5_h1.png" class="frame h3">
         <div class="cta-btn"></div>
       </div>
 
