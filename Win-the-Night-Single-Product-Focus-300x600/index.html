@@ -41,7 +41,7 @@
       display: block;
     }
 
-    .b-160x600 {
+    .b-300x600 {
       width: 300px;
       height: 600px;
       padding: 0;
@@ -96,9 +96,8 @@
 
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
-      height: 600px;
-      width: auto;
-      left: -103px;
+      height: auto;
+      top: -568px;
     }
 
 
@@ -137,7 +136,7 @@
       width: 107px;
       height: 29px;
       border-radius: 2.5px;
-      top: 534px;
+      top: 533px;
       left: 96px;
       position: absolute;
       z-index: 4;
@@ -191,7 +190,7 @@
       var legalExit = document.querySelector('.legal-exit');
       var bannerContent = document.querySelector('.banner-content');
       var bannerConfig = {
-        width: 160,
+        width: 300,
         height: 600
       }
 
@@ -222,14 +221,14 @@
         bannerTL
           .to(fr1Logo, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
           .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], 1.5, { x: '-=554', ease: Linear.easeIn }, '-=.25')
+          .to([fr1RotateText1, fr1RotateText2], 2, { y: '+=566', ease: Linear.easeIn }, '-=.25')
           .to(fr1RotateText1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
           .to([fr2, prod1, fr2LogoA, fr2H1, legal, legalExit], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
           .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
 
-          .to([fr3, pharma, end, fr5LogoB], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=2')
+          .to([fr3, pharma, end, fr5LogoB], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=2.25')
           .to(prod1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
 
           .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
@@ -237,7 +236,7 @@
 
         // setTimeout(function () {
         //   bannerTL.pause();
-        // }, 4000)
+        // }, 15000)
 
         function ctaOnHover() {
           ctaBtn.classList.toggle('hovered');
@@ -298,7 +297,7 @@
   </script>
 
 <body>
-  <div id="container" class="container b-160x600" style="background-color: #fff;">
+  <div id="container" class="container b-300x600" style="background-color: #fff;">
     <div class="banner-border"></div>
     <a class="exit" href="javascript:void(window.open(window.clickTag))"></a>
     <a class="legal-exit" href="javascript:void(window.open(window.clickTag2))"></a>
