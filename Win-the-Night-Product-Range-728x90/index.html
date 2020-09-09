@@ -72,79 +72,76 @@
       opacity: 0;
     }
 
-    img {
+    .frame img {
       width: 728px;
       height: 90px;
     }
 
-    .frame.frame-1 {
+    .frame.frame-1,
+    .frame-1-bg {
+      opacity: 1;
       z-index: 1;
-      opacity: 1;
-      background-image: url('./images/prod_range_fr1.jpg');
-      background-size: contain;
     }
 
-    .frame.logo {
+    .frame.slogan-1 {
       z-index: 2;
-      opacity: 1;
+      opacity: 0;
     }
 
+    .frame.logo-1,
     .frame.text--static,
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
       z-index: 2;
+      opacity: 1;
     }
+
 
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
       height: auto;
-      top: -172px;
+      top: -170px;
     }
 
-    .frame.frame-2,
-    .frame.h1,
-    .frame.h2,
-    .frame.logo-b,
-    .frame.h3 {
+
+    .frame.frame-2 {
+      opacity: 1;
       z-index: 3;
+      left: -728px;
     }
 
-    .frame-2-bg {
-      /* transform: scale(1.4); */
-      width: 728px;
-      height: auto;
-      position: absolute;
-      left: 0;
-      top: 0;
-    }
-
-    .frame.product-shadow {
-      z-index: 5;
-      background-image: url('./images/prod_range_all_prod_shadow.png');
-      background-size: contain;
-    }
-
-    .frame.frame-3,
-    .frame.logo-3,
-    .frame.end,
-    .frame.logo-a {
+    .frame.end {
       z-index: 4;
     }
 
-    .frame.cta-text {
-      z-index: 5;
+
+    .frame.logo-2,
+    .frame.slogan-2 {
+      z-index: 4;
     }
 
-    .frame.frame-4 {
-      z-index: 6;
+    .frame.h2,
+    .frame.h3,
+    .frame.h4 {
+      z-index: 3;
+    }
+
+    .frame-2-bg,
+    .prod {
       opacity: 1;
+      z-index: 3;
+    }
+
+    .frame.legal,
+    .frame.cta-text {
+      z-index: 5;
     }
 
     .cta-btn {
       background-color: #a60f2d;
       opacity: 0;
-      width: 115px;
-      height: 31px;
+      width: 111px;
+      height: 30px;
       border-radius: 2.5px;
       top: 30px;
       left: 568px;
@@ -198,6 +195,7 @@
       var exit = document.querySelector('.exit');
       var legalExit = document.querySelector('.legal-exit');
       var bannerContent = document.querySelector('.banner-content');
+
       var bannerConfig = {
         width: 728,
         height: 90
@@ -205,24 +203,22 @@
 
 
       // list all animating elements
-      var fr1Logo = document.querySelector('.logo');
+      var fr1 = document.querySelector('.frame-1');
+      var logo2 = document.querySelector('.logo-2');
+      var slogan2 = document.querySelector('.slogan-2');
       var fr1StaticText = document.querySelector('.text--static');
       var fr1RotateText1 = document.querySelector('.text--rotate-1');
       var fr1RotateText2 = document.querySelector('.text--rotate-2');
       var fr2 = document.querySelector('.frame-2');
       var legal = document.querySelector('.legal');
-      var table = document.querySelector('.table');
-      var shadow = document.querySelector('.product-shadow');
-      var fr2LogoA = document.querySelector('.logo-a');
-      var fr2H1 = document.querySelector('.h1');
-      var fr2H2 = document.querySelector('.h2');
-
-      var fr3 = document.querySelector('.frame-3');
-      var fr3Logo3 = document.querySelector('.logo-3');
-      var pharma = document.querySelector('.h4');
-      var end = document.querySelector('.end');
+      var h2 = document.querySelector('.h2');
+      var h3 = document.querySelector('.h3');
+      var h4 = document.querySelector('.h4');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
+      var prod = document.querySelector('.prod');
+      var end = document.querySelector('.end');
+
 
 
       // timelines
@@ -233,19 +229,17 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to([fr1RotateText1, fr1RotateText2], 1.5, { y: '+=145', ease: Linear.easeIn }, '+=1')
           .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
-          .to([fr1Logo,fr1StaticText, fr1RotateText1, fr1RotateText2], .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
 
-          .to([fr2,fr2LogoA,fr2H1,shadow,legal,legalExit,pharma], .5, { autoAlpha: 1, ease: Sine.easeOut })
-          .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2.25')
-          .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to([fr1, fr2], .5, { x: '+=728', ease: Sine.easeOut }, '+=1.5')
+          .to([h2, logo2, h4, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
+          .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
 
-          // .to(fr3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '+=2.5')
-          .to([pharma,fr2H2], .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2.5')
-
-          .to([end, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([ctaText, ctaBtn, slogan2, end], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
+          .to(h4, .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -269,21 +263,21 @@
 
       function preload() {
         images = [
-          './images/end_frame.png',
+          './images/prod_range_win_the_night.png',
           './images/prod_range_all_prod_shadow.png',
-          './images/prod_range_fr1.jpg',
+          './images/prod_range_fr1_bg.jpg',
           './images/prod_range_fr1_logo.png',
           './images/prod_range_fr2_static_text.png',
           './images/prod_range_fr2_symptoms_full.png',
           './images/prod_range_fr2_your_racing_mind.png',
           './images/prod_range_fr3_fr4.jpg',
-          './images/prod_range_fr3_logo.png',
           './images/prod_range_fr3_h1.png',
           './images/prod_range_fr3_legal.png',
+          './images/prod_range_fr3_logo.png',
           './images/prod_range_fr4_h1.png',
           './images/prod_range_fr5_h1.png',
-          './images/prod_range_fr5_h1.png',
           './images/prod_range_fr6_cta_text.png',
+          './images/prod_range_logo_b.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -318,28 +312,28 @@
     <a class="legal-exit" href="javascript:void(window.open(window.clickTag2))"></a>
     <div class="banner-content">
 
+
       <div class="frame frame-1">
-        <img src="./images/prod_range_fr1_logo.png" class="frame logo" />
+        <img src="./images/prod_range_fr1_bg.jpg" class="frame frame-1-bg" />
+        <img src="./images/prod_range_fr1_logo.png" class="frame logo-1" />
+        <img src="./images/prod_range_win_the_night.png" class="frame slogan-1" />
         <img src="./images/prod_range_fr2_static_text.png" class="frame text--static" />
         <img src="./images/prod_range_fr2_symptoms_full.png" class="frame text--rotate-1" />
         <img src="./images/prod_range_fr2_your_racing_mind.png" class="frame text--rotate-2" />
       </div>
 
+
       <div class="frame frame-2">
-        <img src="./images/prod_range_fr3_fr4.jpg" class="frame-2-bg" />
-        <img src="./images/prod_range_fr3_h1.png" class="frame h1">
-        <img src="./images/prod_range_fr4_h1.png" class="frame h2">
+        <img src="./images/prod_range_fr3_legal.png" class="frame legal" />
+        <img src="./images/prod_range_fr3_fr4.jpg" class="frame frame-2-bg" />
+        <img src="./images/prod_range_logo_b.png" class="frame logo-2" />
+        <img src="./images/prod_range_win_the_night.png" class="frame slogan-2" />
+        <img src="./images/prod_range_all_prod_shadow.png" class="frame prod" />
+        <img src="./images/prod_range_fr3_h1.png" class="frame h2">
+        <img src="./images/prod_range_fr4_h1.png" class="frame h3">
         <img src="./images/prod_range_fr5_h1.png" class="frame h4">
-      </div>
-
-      <div class="frame product-shadow"></div>
-
-      <div class="frame frame-4">
         <img src="./images/prod_range_fr6_cta_text.png" class="frame cta-text">
         <div class="cta-btn"></div>
-        <img src="./images/prod_range_fr3_logo.png" class="frame logo-a">
-        <img src='./images/prod_range_fr3_legal.png' class="frame legal">
-        <img src="./images/end_frame.png" class="frame end">
       </div>
 
     </div>
