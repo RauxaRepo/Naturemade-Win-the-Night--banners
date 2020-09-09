@@ -83,47 +83,24 @@
       z-index: 1;
     }
 
-    .frame.logo-1,
-    .frame.slogan-1,
-    .frame.text--static,
-    .frame.text--rotate-1,
-    .frame.text--rotate-2 {
-      z-index: 2;
+    .frame.logo,
+    .frame.legal,
+    .frame.h2 {
       opacity: 1;
-    }
-
-
-    .frame.text--rotate-1,
-    .frame.text--rotate-2 {
-      height: 600px;
-      width: auto;
-      left: -102px;
-    }
-
-    .frame.logo-2,
-    .frame.slogan-2 {
-      z-index: 4;
-
-    }
-
-    .frame.frame-2 {
-      opacity: 1;
-      z-index: 3;
-      top: -600px;
     }
 
     .frame.end {
       z-index: 4;
     }
 
+    .frame.logo,
+    .frame.slogan,
     .frame.h2,
-    .frame.h3,
-    .frame.h4,
-    .frame.h5 {
+    .frame.h3 {
       z-index: 3;
     }
 
-    .frame-2-bg,
+
     .prod {
       opacity: 1;
       z-index: 3;
@@ -200,18 +177,9 @@
 
 
       // list all animating elements
-      var fr1 = document.querySelector('.frame-1');
-      var logo2 = document.querySelector('.logo-2');
-      var slogan2 = document.querySelector('.slogan-2');
-      var fr1StaticText = document.querySelector('.text--static');
-      var fr1RotateText1 = document.querySelector('.text--rotate-1');
-      var fr1RotateText2 = document.querySelector('.text--rotate-2');
-      var fr2 = document.querySelector('.frame-2');
-      var legal = document.querySelector('.legal');
+      var slogan = document.querySelector('.slogan');
       var h2 = document.querySelector('.h2');
       var h3 = document.querySelector('.h3');
-      var h4 = document.querySelector('.h4');
-      var h5 = document.querySelector('.h5');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
       var prod = document.querySelector('.prod');
@@ -224,19 +192,13 @@
 
       function bannerAnimation() {
 
-
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to([fr1RotateText1, fr1RotateText2], 2, { x: '-=428', ease: Linear.easeIn }, '+=1')
-          .to(fr1RotateText1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr1, fr2], .5, { y: '+=600', ease: Sine.easeOut }, '+=1.5')
-          .to([logo2, h2, legal, legalExit], 0, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
-          .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to(prod, 0, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
-          .to([slogan2, ctaText, ctaBtn, end], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to([h3, prod], .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
+          .to([slogan, ctaText, ctaBtn, end], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
 
 
         // setTimeout(function () {
@@ -260,11 +222,7 @@
 
       function preload() {
         images = [
-          './images/graphic_single_product_160x600_fr1_bg.jpg',
           './images/graphic_single_product_160x600_fr3_logo.png',
-          './images/graphic_single_product_160x600_fr2_static_text.png',
-          './images/graphic_single_product_160x600_fr2_symptoms_full.png',
-          './images/graphic_single_product_160x600_fr2_your_9am_meeting.png',
           './images/graphic_single_product_160x600_cta_text.png',
           './images/graphic_single_product_160x600_legal.png',
           './images/graphic_single_product_160x600_fr4_h1.png',
@@ -272,7 +230,8 @@
           './images/graphic_single_product_160x600_fr3_h1.png',
           './images/graphic_single_product_160x600_fr3_product.png',
           './images/graphic_single_product_160x600_logo.png',
-          './images/end_frame.png'
+          './images/end_frame.png',
+          './images/graphic_single_product_160x600_win_the_night.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -307,22 +266,11 @@
     <a class="legal-exit" href="javascript:void(window.open(window.clickTag2))"></a>
     <div class="banner-content">
 
-
       <div class="frame frame-1">
-        <img src="./images/graphic_single_product_160x600_fr1_bg.jpg" class="frame frame-1-bg" />
-        <img src="./images/graphic_single_product_160x600_logo.png" class="frame logo-1" />
-        <img src="./images/graphic_single_product_160x600_win_the_night.png" class="frame slogan-1" />
-        <img src="./images/graphic_single_product_160x600_fr2_static_text.png" class="frame text--static" />
-        <img src="./images/graphic_single_product_160x600_fr2_symptoms_full.png" class="frame text--rotate-1" />
-        <img src="./images/graphic_single_product_160x600_fr2_your_9am_meeting.png" class="frame text--rotate-2" />
-      </div>
-
-
-      <div class="frame frame-2">
         <img src="./images/graphic_single_product_160x600_legal.png" class="frame legal" />
-        <img src="./images/graphic_single_product_160x600_fr3_bg_full.png" class="frame frame-2-bg" />
-        <img src="./images/graphic_single_product_160x600_logo.png" class="frame logo-2" />
-        <img src="./images/graphic_single_product_160x600_win_the_night.png" class="frame slogan-2" />
+        <img src="./images/graphic_single_product_160x600_fr3_bg_full.png" class="frame frame-1-bg" />
+        <img src="./images/graphic_single_product_160x600_logo.png" class="frame logo" />
+        <img src="./images/graphic_single_product_160x600_win_the_night.png" class="frame slogan" />
         <img src="./images/graphic_single_product_160x600_fr3_product.png" class="frame prod" />
         <img src="./images/graphic_single_product_160x600_fr3_h1.png" class="frame h2">
         <img src="./images/graphic_single_product_160x600_fr4_h1.png" class="frame h3">
