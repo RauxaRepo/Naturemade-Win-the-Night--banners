@@ -83,7 +83,11 @@
       z-index: 1;
     }
 
-    .frame.slogan-1,
+    .frame.slogan-1 {
+      z-index: 2;
+      opacity: 0;
+    }
+
     .frame.logo-1,
     .frame.text--static,
     .frame.text--rotate-1,
@@ -96,7 +100,7 @@
     .frame.text--rotate-1,
     .frame.text--rotate-2 {
       height: auto;
-      top: -172px;
+      top: -170px;
     }
 
 
@@ -109,6 +113,7 @@
     .frame.end {
       z-index: 4;
     }
+
 
     .frame.logo-2,
     .frame.slogan-2 {
@@ -232,9 +237,9 @@
           .to(h2, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
           .to(h3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
           .to(h3, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to(prod, .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=0')
+
           .to([ctaText, ctaBtn, slogan2, end], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
-          .to(h4, .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
+          .to([prod, h4], .5, { autoAlpha: 0, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -271,7 +276,8 @@
           './images/graphic_single_product_728x90_logo.png',
           './images/graphic_single_product_728x90_fr2_your_9am_meeting.png',
           './images/graphic_single_product_728x90_win_the_night.png',
-          './images/end_frame.png'
+          './images/end_frame.png',
+          './images/graphic_single_product_728x90_logo_b.png'
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -320,7 +326,7 @@
       <div class="frame frame-2">
         <img src="./images/graphic_single_product_728x90_legal.png" class="frame legal" />
         <img src="./images/graphic_single_product_728x90_fr3_bg_full.png" class="frame frame-2-bg" />
-        <img src="./images/graphic_single_product_728x90_logo.png" class="frame logo-2" />
+        <img src="./images/graphic_single_product_728x90_logo_b.png" class="frame logo-2" />
         <img src="./images/graphic_single_product_728x90_win_the_night.png" class="frame slogan-2" />
         <img src="./images/graphic_single_product_728x90_fr3_product.png" class="frame prod" />
         <img src="./images/graphic_single_product_728x90_fr3_h1.png" class="frame h2">
