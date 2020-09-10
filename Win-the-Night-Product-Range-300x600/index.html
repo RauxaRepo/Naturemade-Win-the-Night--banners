@@ -127,7 +127,9 @@
     .frame.frame-3,
     .frame.logo-3,
     .frame.end,
-    .frame.logo-a {
+    .frame.logo-a,
+    .frame.slogan,
+    .frame.h3 {
       z-index: 4;
     }
 
@@ -221,6 +223,8 @@
       var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
+      var slogan = document.querySelector('.slogan');
+      var h3 = document.querySelector('.h3');
 
 
       // timelines
@@ -243,7 +247,7 @@
           .to(fr3, .75, { autoAlpha: 1, ease: Sine.easeOut }, '+=2.5')
           .to(shadow, .75, { autoAlpha: 0, ease: Sine.easeOut }, '-=.75')
 
-          .to([end, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
+          .to([end, ctaText, ctaBtn, slogan, h3], .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
 
 
         // setTimeout(function () {
@@ -280,6 +284,9 @@
           './images/prod_range_fr4_h1.png',
           './images/prod_range_fr3_fr4.jpg',
           './images/prod_range_fr6_cta_text.png',
+          './images/prod_range_fr5_slogan.png',
+          './images/prod_range_fr5_h1.png'
+
         ];
 
         for (var i = 0; i < images.length; i++) {
@@ -331,7 +338,9 @@
 
       <div class="frame frame-3">
         <img src="./images/end_frame.png" class="frame end">
+        <img src="./images/prod_range_fr5_slogan.png" class="frame slogan">
         <img src="./images/prod_range_fr6_cta_text.png" class="frame cta-text">
+        <img src="./images/prod_range_fr5_h1.png" class="frame h3">
         <div class="cta-btn"></div>
       </div>
 
