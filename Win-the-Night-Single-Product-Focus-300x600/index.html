@@ -76,58 +76,34 @@
       height: 600px;
     }
 
-    .frame.frame-1 {
+    .frame.frame-1,
+    .frame.h1,
+    .frame.product-1 {
       z-index: 1;
       opacity: 1;
-      background-image: url('./images/single_prod_focus_fr1.jpg');
-      background-size: contain;
     }
 
-    .frame.logo {
-      z-index: 2;
+    .frame.logo,
+    .frame.legal {
+      z-index: 3;
       opacity: 1;
     }
 
-    .frame.text--static,
-    .frame.text--rotate-1,
-    .frame.text--rotate-2 {
+    .frame.h2 {
       z-index: 2;
     }
 
-    .frame.text--rotate-1,
-    .frame.text--rotate-2 {
-      height: auto;
-      top: -568px;
-    }
-
-
-    .frame.frame-2,
-    .frame.table,
-    .frame.h1,
-    .frame.h2,
-    .frame.h3 {
+    .frame.end {
       z-index: 3;
     }
 
-    .frame.product-1 {
-      z-index: 6;
-      background-image: url('./images/single_prod_focus_extended_release_melatonin.png');
-      background-size: contain;
-    }
-
-    .frame.frame-3,
-    .frame.end {
+    .frame.h3,
+    .frame.slogan {
       z-index: 4;
     }
 
-    .frame.frame-4 {
-      z-index: 6;
-      opacity: 1;
-    }
-
-    .frame.cta-text,
-    .frame.h3 {
-      z-index: 6;
+    .frame.cta-text {
+      z-index: 5;
     }
 
     .cta-btn {
@@ -195,19 +171,13 @@
       }
 
       // list all animating elements
-      var fr1Logo = document.querySelector('.logo');
-      var fr1StaticText = document.querySelector('.text--static');
-      var fr1RotateText1 = document.querySelector('.text--rotate-1');
-      var fr1RotateText2 = document.querySelector('.text--rotate-2');
-      var fr2 = document.querySelector('.frame-2');
+
       var legal = document.querySelector('.legal');
       var prod1 = document.querySelector('.product-1');
-      var fr2LogoA = document.querySelector('.logo-a');
-      var fr5LogoB = document.querySelector('.logo-b');
-      var fr2H1 = document.querySelector('.h1');
-      var fr2H2 = document.querySelector('.h2');
-      var fr3 = document.querySelector('.frame-3');
-      var pharma = document.querySelector('.h3');
+      var slogan = document.querySelector('.slogan');
+      var h1 = document.querySelector('.h1');
+      var h2 = document.querySelector('.h2');
+      var h3 = document.querySelector('.h3');
       var end = document.querySelector('.end');
       var ctaText = document.querySelector('.cta-text');
       var ctaBtn = document.querySelector('.cta-btn');
@@ -219,19 +189,11 @@
 
         bannerTL = new TimelineMax({ paused: false });
         bannerTL
-          .to(fr1Logo, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=1.5')
-          .to([fr1StaticText, fr1RotateText1, fr1RotateText2], .5, { autoAlpha: 1, ease: Sine.easeOut }, '-=.5')
-          .to([fr1RotateText1, fr1RotateText2], 2, { y: '+=566', ease: Linear.easeIn }, '-=.25')
-          .to(fr1RotateText1, .5, { autoAlpha: 0, ease: Sine.easeOut }, '+=0')
 
-          .to([fr2, prod1, fr2LogoA, fr2H1, legal, legalExit], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=1')
-          .to(fr2H1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2')
-          .to(fr2H2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to(h1, .75, { autoAlpha: 0, ease: Sine.easeOut }, '+=2.5')
+          .to(h2, .75, { autoAlpha: 1, ease: Sine.easeOut }, '-=0')
+          .to([h3, end, slogan, ctaText, ctaBtn], .75, { autoAlpha: 1, ease: Sine.easeOut }, '+=2.5');
 
-          .to([fr3, pharma, end, fr5LogoB], .25, { autoAlpha: 1, ease: Sine.easeOut }, '+=2.25')
-          .to(prod1, .25, { autoAlpha: 0, ease: Sine.easeOut }, '-=.25')
-
-          .to([ctaText, ctaBtn], .25, { autoAlpha: 1, ease: Sine.easeOut }, '-=.25')
 
 
         // setTimeout(function () {
@@ -257,11 +219,6 @@
         images = [
           './images/end_frame.png',
           './images/single_prod_focus_extended_release_melatonin.png',
-          './images/single_prod_focus_fr1.jpg',
-          './images/single_prod_focus_fr1_logo.png',
-          './images/single_prod_focus_fr2_static_text.png',
-          './images/single_prod_focus_fr2_symptoms_full.png',
-          './images/single_prod_focus_fr2_your_racing_mind.png',
           './images/single_prod_focus_fr3_logo.png',
           './images/single_prod_focus_fr3_h1.png',
           './images/single_prod_focus_fr4_h1.png',
@@ -304,33 +261,21 @@
     <div class="banner-content">
 
       <div class="frame frame-1">
-        <img src="./images/single_prod_focus_fr1_logo.png" class="frame logo" />
         <img src="./images/single_prod_focus_fr2_static_text.png" class="frame text--static" />
         <img src="./images/single_prod_focus_fr2_symptoms_full.png" class="frame text--rotate-1" />
-        <img src="./images/single_prod_focus_fr2_your_racing_mind.png" class="frame text--rotate-2" />
-      </div>
-
-
-      <div class="frame frame-2">
+        <img src="./images/single_prod_focus_extended_release_melatonin.png" class="frame product-1" />
         <img src="./images/single_prod_focus_fr3_fr4.jpg" class="frame-2-bg" />
         <img src="./images/single_prod_focus_fr3_h1.png" class="frame h1">
         <img src="./images/single_prod_focus_fr4_h1.png" class="frame h2">
-      </div>
-
-      <div class="frame product-1"></div>
-
-      <div class="frame frame-3">
         <img src="./images/single_prod_focus_fr6_cta_text.png" class="frame cta-text">
         <img src="./images/single_prod_focus_fr5_h1.png" class="frame h3">
         <img src="./images/end_frame.png" class="frame end">
+        <img src="./images/single_prod_focus_fr3_logo.png" class="frame logo">
+        <img src="./images/single_prod_focus_fr5_slogan.png" class="frame slogan">
+        <img src='./images/single_prod_focus_fr3_legal.png' class="frame legal">
         <div class="cta-btn"></div>
       </div>
 
-      <div class="frame frame-4">
-        <img src="./images/single_prod_focus_fr3_logo.png" class="frame logo-a">
-        <img src="./images/single_prod_focus_fr5_slogan.png" class="frame logo-b">
-        <img src='./images/single_prod_focus_fr3_legal.png' class="frame legal">
-      </div>
 
     </div>
 </body>
